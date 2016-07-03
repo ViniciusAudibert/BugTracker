@@ -35,7 +35,7 @@ namespace Interface.Presentation.Controllers
                 var token = await client.Oauth.CreateAccessToken(
                     new OauthTokenRequest(clientId, clientSecret, code)
                     {
-                        RedirectUri = new Uri("http://localhost:58173/logingithub/githubauthentication")
+                        RedirectUri = new Uri("http://bugtracker-5.apphb.com/logingithub/githubauthentication")
                     });
                 Session["OAuthToken"] = token.AccessToken;
             }
