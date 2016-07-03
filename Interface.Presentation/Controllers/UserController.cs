@@ -20,7 +20,7 @@ namespace Interface.Presentation.Controllers
         private IApplicationService applicationService;
         private IDownloadService downloadService;
         private IUserService userService;
-        
+
 
         public UserController()
         {

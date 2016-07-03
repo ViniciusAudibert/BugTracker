@@ -3,6 +3,7 @@ using BugTracker.Domain.Interface.Service;
 using Interface.Presentation.App_Start;
 using Interface.Presentation.Extensions;
 using Interface.Presentation.Filters;
+using Interface.Presentation.Mail_Body;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
@@ -21,6 +22,7 @@ namespace Interface.Presentation.Controllers
     {
         private IBugTrackerService bugTrackerService;
         private IApplicationService applicationService;
+        private IMailService mail = MailServiceInjection.Create();
 
         public BugTrackerController()
         {
@@ -33,9 +35,11 @@ namespace Interface.Presentation.Controllers
         {
             var request = HttpContext.Request;
 
-            var application = 
+            mail.Send("vini.audibert@gmail.com", "Track", HttpContext.Request.Url.Host, false);
+
+                        var application = 
                 applicationService.FindByUrlAndUserHashCode(
-                    HttpContext.Request.Url.Authority,
+                    HttpContext.Request.Url.Host,
                     bugTrackerPostModel.HashCode
                  );
 
