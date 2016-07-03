@@ -1,0 +1,71 @@
+﻿@model Interface.Presentation.Models.ApplicationModel
+@{
+    ViewBag.Title = "CreateApp";
+}
+<div class="panel panel-success col-md-12 box">
+    <div class="panel-heading">
+        @if (Model != null)
+        {
+            <h4>Edit application</h4>
+        }
+        else
+        {
+            <h4>New application</h4>
+        }
+
+    </div>
+    @using (Html.BeginForm("NewEditApp", "Application", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Icon)
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tag, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Tag, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-4">
+                    <label class="btn btn-info btn-image">
+                        You can choose now your application image or you can add later
+                        @Html.TextBoxFor(model => model.File, new { type = "file", style = "display:none", id = "imgInput" })
+                    </label>
+                </div>
+            </div>
+
+            <div id="project-img" style="display:none">
+                <img id="imgShow" />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Register" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

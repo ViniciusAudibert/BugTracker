@@ -1,0 +1,64 @@
+﻿@model BugTracker.Domain.Entity.Application
+@{
+    ViewBag.Title = "Application Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-success col-md-11 box">
+    <div class="panel-heading">
+        <h4>Graphics</h4>
+    </div>
+
+    <div id="graphics"></div>
+</div>
+ 
+<div class="panel panel-success col-md-11 box">
+        <div class="panel-heading">
+            <h4>@Html.DisplayFor(model => model.Title) </h4>
+        </div>
+        <div class="panel-body">
+            <div id="count-bugs"></div>
+            <div id="filters">
+                
+                @{
+                    int i = 1;
+                    
+                    foreach (String s in ViewBag.Status)
+                    {
+                        <input type="checkbox" id="Status" name="Status" value="@i" /> @s
+                        i++;
+                    }
+                }
+
+                Trace: <input type="text" id="Trace" name="Trace"/>
+
+                <button id="filter">Filter</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Trace</th>
+                        <th>Status</th>
+                        <th>Occurred Date</th>
+                        <th>Tags</th>
+                        <th>Browser Name</th>
+                        <th>Browser Version</th>
+                        <th>Operation System</th>
+                    </tr>
+                </thead>
+                <tbody id="list-bug-tracks"></tbody>
+            </table>
+        </div>
+    </div>
+
+    @section scripts{
+        <script>
+            var idApplication = '@Model.IDApplication';
+        </script>
+        @Scripts.Render("~/bundles/graphics")
+        @Scripts.Render("~/bundles/application")
+
+        <script>
+            new BugTrackerView().init();
+        </script>
+    }

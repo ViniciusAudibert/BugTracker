@@ -1,0 +1,25 @@
+﻿<!--  Login form -->
+<div class="modal hide fade in" id="loginForm" aria-hidden="false">
+    <div class="modal-header">
+        <i class="icon-remove fa fa-times" data-dismiss="modal" aria-hidden="true"></i>
+        <h4>SignIn Bellow</h4>
+    </div>
+    <!--Modal Body-->
+    <div class="modal-body">
+        @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form-inline", id = "form-login" }))
+            {
+            @Html.AntiForgeryToken()
+
+            <input type="email" name="email" class = "input-small input-email", placeholder = "E-mail" />
+
+            <input type="password" name="password" class = "input-small", placeholder = "Password" />
+
+            <button type="submit" class="btn btn-info">Sign in</button>
+        }
+        <a href=@Url.Action("SignInGitHub","LoginGitHub") class="btn btn-success">GitHub</a>
+        <a href=@Url.Action("Register", "Home") class="btn btn-warning">Register</a>
+        <a href=@Url.Action("ForgotPassword","UserRecovery")>Forgot your password?</a>
+    </div>
+    <!--/Modal Body-->
+</div>
+<!--  /Login form -->

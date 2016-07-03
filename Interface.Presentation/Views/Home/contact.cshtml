@@ -1,0 +1,61 @@
+﻿@model Interface.Presentation.Models.Email.SendEmailModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "Contact";
+}
+
+
+<section class="no-margin">
+    <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.4025418409483!2d-51.148697884446925!3d-29.794912826676413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951968e7b4ed7db9%3A0x35f6f8838a65a91b!2sCWI+Software!5e0!3m2!1sen!2sbr!4v1467437217015"></iframe>
+</section>
+<section id="contact-page" class="container">
+    <div class="row-fluid">
+        <div class="span8">
+            <h4>Contact Form</h4>
+            <div class="status alert alert-success" style="display: none"></div>
+            @using (Html.BeginForm("Send", "SendEmail", FormMethod.Post, new { @class = "contact-form", name = "contact-form", id = "main-contact-form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row-fluid">
+                    <div class="span5">
+
+                        @Html.LabelFor(model => model.FirstName)
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "input-block-level", placeholder = "Your First Name" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+
+                        @Html.LabelFor(model => model.LastName)
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "input-block-level", placeholder = "Your Last Name" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+
+                        @Html.LabelFor(model => model.Email)
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-block-level", placeholder = "Your Email Address" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="span7">
+                        @Html.LabelFor(model => model.Message)
+                        @Html.TextAreaFor(model => model.Message, new { style = "resize:none", name = "message", id = "message", @class = "input-block-level", rows = "8" })
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-large pull-right" value="Send Message" />
+            }
+        </div>
+        <div class="span3">
+            <h4>Our Address</h4>
+            <p>Av. Theodomiro Pôrto da Fonseca.</p>
+
+            <p>
+                <i class="icon-map-marker pull-left"></i> 3101 - Cristo Rei, São Leopoldo<br>
+                RS, 09075-056,  Brazil
+            </p>
+            <p>
+                <i class="icon-envelope"></i> &nbsp;crescer.bugtracker@gmail.com
+            </p>
+            <p>
+                <i class="icon-phone"></i> &nbsp;+55 51 9999 9999
+            </p>
+        </div>
+    </div>
+</section>
+<!--Bottom-->

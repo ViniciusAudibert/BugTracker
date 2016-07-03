@@ -1,0 +1,66 @@
+.foto{
+  width: 120px;
+  height: 120px;
+  border-style: groove;
+  border-width: 5px;
+  border-color: #0d172e;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+.btn{
+  margin:10px;
+}
+
+.box{
+  margin-left: 30px;
+  height: 77%;
+  overflow-y: auto;
+}
+.graphics{
+  height: 200px;
+  width: 300px;
+}
+
+.logo{
+  height: 30px;
+  width: 30px;
+}
+
+.errors{
+  color: red;
+}
+
+.warnings{
+  color: yellow;
+}
+
+.icon{
+  border-style: groove;
+  border-width: 1px;
+  border-color: #93c54b;
+}
+
+.details{
+    width: 128px;
+    height: 128px;
+    margin: 40px;
+}
+
+.list{
+    width: 32px;
+    height: 32px;
+}
+
+.paenl-edit{
+    display: none;
+}
+
+.panel-heading{
+    padding: -10px;
+    margin: -20px;
+    margin-bottom:10px;
+}
+
+.panel{
+    padding: 20px;
+}

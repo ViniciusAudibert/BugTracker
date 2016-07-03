@@ -1,0 +1,93 @@
+﻿@model List<Interface.Presentation.Models.Application.ApplicationAndBugsViewModel>
+@{
+    ViewBag.Title = "Home";
+}
+<div class="row">
+    <div class="panel panel-success col-md-6 box">
+        <div class="panel-heading">
+            <h4>Applications</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <form action="~/User/Search/" method="post">
+                    <input type="text" class="form-control" name="name" placeholder="App name...">
+                    <input href="~/User/Search/" class="btn btn-success col-sm-2 glyphicon glyphicon-zoom-in" type="submit" value="Search" />
+                </form>
+                <a href="~/Application/RegisterApp/" class="btn btn-success col-sm-2">New App</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>App Name</th>
+                        <th>Last Track</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @try
+                            {
+                                <td>
+                                    <img src="~/Content/Images/Application/@item.AppImage" class="icon list" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AppName)
+                                </td>
+                                <td>
+                                    <a href="#" data-toggle="tooltip" title="@item.Bug.Description">
+                                        <i class="fa fa-code" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    @item.Bug.OccurredDate.ToString("dd/MM/yyyy HH:mm")
+                                </td>
+                            }
+                            catch (Exception e)
+                            {
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            }
+                            <td><a href="~/Application/DetailsApp/@item.AppId" class="glyphicon glyphicon-th-list" alt="Detalhes"></a></td>
+                            <td><a href="~/Application/RegisterApp/@item.AppId" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
+                            <td><a href="#" class="glyphicon glyphicon-trash delete" alt="Exlcuir" data-delete-id="@item.AppId"></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-success col-md-5 box">
+        <div class="panel-heading">
+            <h4>Today</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>App Name</th>
+                        <th>Warnings</th>
+                        <th>Errors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><a href="#"></a>@Html.DisplayFor(modelItem => item.AppName)</td>
+                            <td><span class="glyphicon glyphicon-alert warnings"></span>@item.TracksCountWarning</td>
+                            <td><span class="glyphicon glyphicon-alert errors"></span>@item.TracksCountError</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/home")
+}

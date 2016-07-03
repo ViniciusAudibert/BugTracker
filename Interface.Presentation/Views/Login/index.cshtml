@@ -1,0 +1,49 @@
+﻿@model Interface.Presentation.Models.User.UserLoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "login";
+}
+
+@section css{
+    <link href="~/Content/Custom/forms.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Make your login bellow</h3>
+            </div>
+            <div class="panel-body">
+                <div class="register-column">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Your Email Address" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(model => model.Password, new {  @class = "form-control", placeholder = "Your Password" })
+                            </div>
+                        </div>
+                        <a class="link-forgot" href=@Url.Action("ForgotPassword","UserRecovery")>Forgot Password</a>
+                        <input type="submit" value="Login" class="btn btn-success btn-login pull-right" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-login">
+                            <a class="btn btn-warning btn-create" href=@Url.Action("Register","Home")>Register</a>
+                            <a class="btn btn-info btn-create" href=@Url.Action("SignInGitHub", "LoginGitHub")>Login GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

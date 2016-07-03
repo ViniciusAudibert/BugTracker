@@ -1,0 +1,222 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "Home";
+}
+
+@section css{
+    <link href="~/Content/Custom/sl-slide.css" rel="stylesheet" />
+}
+
+<!--Slider-->
+<section id="slide-show">
+    <div id="slider" class="sl-slider-wrapper">
+        <!--Slider Items-->
+        <div class="sl-slider">
+            <!--Slider Item1-->
+            <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                <div class="sl-slide-inner">
+                    <div class="container">
+                        <img src="~/Content/Images/WebSite/logo.png" />
+                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img1.png" alt="" />
+                        <h2>Creative Ideas</h2>
+                        <h3 class="gap">We always keep everything updated</h3>
+                        <a class="btn btn-large btn-transparent" href=@Url.Action("Documentation", "Home")>Documentation</a>
+                    </div>
+                </div>
+            </div>
+            <!--/Slider Item1-->
+            <!--Slider Item2-->
+            <div class="sl-slide item2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                <div class="sl-slide-inner">
+                    <div class="container">
+                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img2.png" alt="" />
+                        <h2>Planning &amp; Analysis</h2>
+                        <h3 class="gap">We have all infrastructure to keep it safe</h3>
+                        <a class="btn btn-large btn-transparent" href=@Url.Action("Register", "Home")>Register</a>
+                    </div>
+                </div>
+            </div>
+            <!--Slider Item2-->
+            <!--Slider Item3-->
+            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                <div class="sl-slide-inner">
+                    <div class="container">
+                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img3.png" alt="" />
+                        <h2>Unique Solutions</h2>
+                        <h3 class="gap">In a near future we will support all devices</h3>
+                        <a class="btn btn-large btn-transparent" href=@Url.Action("Register", "Home")>Register</a>
+                    </div>
+                </div>
+            </div>
+            <!--Slider Item3-->
+        </div>
+        <!--/Slider Items-->
+        <!--Slider Next Prev button-->
+        <nav id="nav-arrows" class="nav-arrows">
+            <span class="nav-arrow-prev"><i class="icon-angle-left fa fa-angle-left"></i></span>
+            <span class="nav-arrow-next"><i class="icon-angle-right fa fa-angle-right"></i></span>
+        </nav>
+        <!--/Slider Next Prev button-->
+    </div>
+    <!-- /slider-wrapper -->
+</section>
+<!--/Slider-->
+
+
+
+<section class="main-info">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span9">
+                <h4>Try, enjoy, do not pay</h4>
+                <p class="no-margin">Our service is totally free and safe, you just need to make an account</p>
+            </div>
+            <div class="span3">
+                <a class="btn btn-success btn-large pull-right" href=@Url.Action("Register", "Home")>Register now</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Services-->
+<section id="services">
+    <div class="container">
+        <div class="center gap">
+            <h3>What We Offer</h3>
+            <p class="lead">Look at some of our services and what does it can do</p>
+        </div>
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-globe icon-medium fa fa-info"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Our service</h4>
+                        <p>BugTracker is basically a tracker of bugs that you will use in your website to make your clients better experiences</p>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-globe icon-medium fa fa-globe"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">How does it work</h4>
+                        <p>You make an account for free in our website, register your website host, you can have up to 5 applications registered, you will be able to download our library to use in your website and what you need to do is use tags where your application can have bugs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-globe icon-medium fa fa-lock"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Safe</h4>
+                        <p>You will recive a library to use in your website application and it will be unique for you. All personal information is encrypted with the best tecnology as possible so do not be afraid of information leakage, we are fully prepared to keep it in safe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-thumbs-up-alt icon-medium fa fa-thumbs-up"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Improvement</h4>
+                        <p>We are always testing and improving for better quality to make the best traker of your application, using our service you can see the bug what happened, when, where and how</p>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-leaf icon-medium icon-rounded fa fa-leaf"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Emails</h4>
+                        <p>You can choose a special tag an use in your application to send email for yourself, then you will know in the same time the bug happend</p>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-shopping-cart icon-medium fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Better sales</h4>
+                        <p>It is comproved that using our service, you will know all the bugs you have to fix and then you will make the best experience to your clients which is possible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/Services-->
+
+<!--Footer-->
+<footer id="footer">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span5 cp">
+                &copy; 2016 BugTracker. All Rights Reserved.
+            </div>
+            <!--/Copyright-->
+            <div class="span1 pull-right">
+                <a id="gototop" class="gototop pull-right" href="#"><i class="icon-angle-up fa fa-angle-up"></i></a>
+            </div>
+            <!--/Goto Top-->
+        </div>
+    </div>
+</footer>
+<!--/Footer-->
+
+
+@section scripts{
+    @*@Scripts.Render("~/bundles/home")*@
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <!-- Required javascript files for Slider -->
+    <script src="~/Scripts/jquery.ba-cond.min.js"></script>
+    <script src="~/Scripts/jquery.slitslider.js"></script>
+    <!-- /Required javascript files for Slider -->
+
+    <!-- SL Slider -->
+    <script type="text/javascript">
+        $(function () {
+            var Page = (function () {
+
+                var $navArrows = $('#nav-arrows'),
+                slitslider = $('#slider').slitslider({
+                    autoplay: true
+                }),
+
+                init = function () {
+                    initEvents();
+                },
+                initEvents = function () {
+                    $navArrows.children(':last').on('click', function () {
+                        slitslider.next();
+                        return false;
+                    });
+
+                    $navArrows.children(':first').on('click', function () {
+                        slitslider.previous();
+                        return false;
+                    });
+                };
+
+                return { init: init };
+
+            })();
+
+            Page.init();
+        });
+    </script>
+    <!-- /SL Slider -->
+
+}
