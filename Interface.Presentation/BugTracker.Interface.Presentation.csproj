@@ -295,7 +295,6 @@
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
-    <Content Include="Views\TesteLibrary\Index.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
