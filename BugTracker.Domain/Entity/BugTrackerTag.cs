@@ -24,5 +24,10 @@ namespace BugTracker.Domain.Entity
         {
             this.IDBugTrackerTag = id;
         }
+
+        public BugTrackerTag(int id, String name, BugTracker bugTracker) : this(id, name)
+        {
+            this.BugTracker = bugTracker;
+        }
     }
 }

@@ -90,8 +90,8 @@ namespace BugTracker.Infra.Repository.DataEntity
                             AppId = _.IDApplication,
                             AppImage = _.Image,
                             LastTrack = _.BugTrackers.OrderByDescending(x => x.IDBugTracker).FirstOrDefault(),
-                            TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR && b.OccurredDate == DateTime.Today).Count(),
-                            TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate == DateTime.Today).Count()                            
+                            TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR && b.OccurredDate >= DateTime.Today).Count(),
+                            TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()                            
                         }
                     ).ToList();
                 

@@ -18,7 +18,7 @@ namespace BugTracker.Domain.Entity
         public virtual OperationalSystem OperationalSystem { get; private set; }
         public virtual ICollection<BugTrackerTag> Tags { get; private set; }
             
-        private BugTracker() { }
+        public BugTracker() { }
 
         public BugTracker(Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, Browser browser, OperationalSystem operationalSystem)
         {
@@ -44,7 +44,7 @@ namespace BugTracker.Domain.Entity
 
         public BugTrackerTag ContainsSpecialTag()
         {
-            return Tags.FirstOrDefault(_ => _.Name.Equals(_.BugTracker.Application.SpecialTag));
+            return Tags.FirstOrDefault(_ => _.Name.Equals(this.Application.SpecialTag));
         }
     }
 }

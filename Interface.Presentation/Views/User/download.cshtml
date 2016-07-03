@@ -2,12 +2,17 @@
 @{
     ViewBag.Title = "Donwload";
 }
-<div class="panel panel-success col-md-12 box">
+<div class="panel panel-success col-md-11 box">
     <div class="panel-heading">
         <h4>Download</h4>
     </div>
     <div>
-        @Html.ActionLink("BugTracker Version 1.0.0 ", "DownloadLibrary")
+        <h3>
+            Download BugTracker Version 1.0.0
+            <a href='@Url.Action("DownloadLibrary", "User")'>
+                <i class="fa fa-download" aria-hidden="true"></i> 
+            </a>
+        </h3>
     </div>
-    <strong>Jquery is required.</strong>
+    <strong>* Need's a Jquery 1.2 or more.</strong>
 </div>

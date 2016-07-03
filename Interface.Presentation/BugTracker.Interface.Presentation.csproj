@@ -145,6 +145,9 @@
     <Content Include="Content\Images\Application\application-default.png" />
     <Content Include="Content\Images\Application\Brazil.png" />
     <Content Include="Content\Images\Application\bug-128.png" />
+    <Content Include="Content\Images\Application\Relational_1.png" />
+    <Content Include="Content\Images\User\Brazil.png" />
+    <Content Include="Content\Images\User\CBrazil.png" />
     <Content Include="Content\Images\User\default-perfil.jpg" />
     <Content Include="Content\Images\User\erros-de-einstein.jpg" />
     <Content Include="Content\Images\WebSite\banner-top.png" />
@@ -164,9 +167,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Library\bugTracker.js" />
     <Content Include="Library\bugTracker_1.js" />
+    <Content Include="Library\cwitracker_min.js" />
     <Content Include="Scripts\Custom\layout\jquery.ba-cond.min.js" />
     <Content Include="Scripts\Custom\layout\jquery.slitslider.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
+    <Content Include="Scripts\Custom\TesteLibrary\TesteLibrary.js" />
     <Content Include="Scripts\Custom\user\account.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
@@ -218,6 +223,8 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Library\cwitracker.js" />
+    <Content Include="Library\cwitrackerteste.js" />
     <Content Include="Scripts\Custom\graphics\graphics.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -308,6 +315,7 @@
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
+    <Content Include="Views\TesteLibrary\Index.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

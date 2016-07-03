@@ -47,6 +47,8 @@ namespace Interface.Presentation.Controllers
             var model = applicationService.FindAppAndBugsByName(name, UserSessionService.LoggedUser.IDUser)
                 .toApplicationAndBugsViewModel(); ;
 
+            ViewBag.FilterName = name;
+
             return View("Index", model);
         }
 

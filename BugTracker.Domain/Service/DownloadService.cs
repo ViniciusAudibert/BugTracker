@@ -38,11 +38,16 @@ namespace BugTracker.Domain.Service
         
         public void CreateFileForUser(User user)
         {
-            var libraryCode =
-                fileService.ReadAllLines(path + libraryFileName)
-                .Replace("hash_code_user", "'" + user.HashCode + "'");
+            var file = fileUser + user.IDUser + ".js";
 
-            fileService.Write(fileUser + user.IDUser + ".js", libraryCode);
+            if (!fileService.Exists(file))
+            {
+                var libraryCode =
+                    fileService.ReadAllLines(path + libraryFileName)
+                    .Replace("hash_code_user", "'" + user.HashCode + "'");
+
+                fileService.Write(file, libraryCode);
+            }
         }
     }
 }

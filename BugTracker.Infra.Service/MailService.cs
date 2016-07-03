@@ -40,7 +40,7 @@ namespace BugTracker.InfraInfra.Service
                 smtpServer.Send(mail);
 
             }
-            catch (SmtpException e)
+            catch (SmtpException)
             {
                 MailMessage mail = new MailMessage();
 

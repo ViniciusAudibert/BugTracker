@@ -28,7 +28,7 @@ namespace Interface.Presentation.Filters
                         ImageFormat.Png.Equals(image.RawFormat) ? true : false;
                 }
             }
-            catch (ArgumentException e) { }
+            catch (ArgumentException) { }
 
             return false;
         }

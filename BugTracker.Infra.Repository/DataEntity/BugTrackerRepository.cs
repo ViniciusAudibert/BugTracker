@@ -40,12 +40,12 @@ namespace BugTracker.Infra.Repository.DataEntity
                 var query = db.BugTrucker
                     .AsNoTracking()
                     .Include("Tags")
-                    .OrderBy(_ => _.IDBugTracker)
+                    .OrderByDescending(_ => _.IDBugTracker)
                     .Skip(filter.Limit * (filter.Page - 1))
                     .Take(filter.Limit)
                     .Where(_ => _.IDApplication == filter.idApplication);
 
-                return addFilter(query, filter.Trace, filter.Status).ToList();
+                return addFilter(query, filter).ToList();
             }
         }
 
@@ -57,7 +57,7 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .AsNoTracking()
                     .Where(_ => _.IDApplication == filter.idApplication);
 
-                return addFilter(query, filter.Trace, filter.Status)
+                return addFilter(query, filter)
                         .GroupBy(x => x.Status)
                         .Select(s => new
                         {
@@ -67,23 +67,21 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        //TODO: Criar objeto para representar os filros
-        private IEnumerable<Domain.Entity.BugTracker> addFilter(IEnumerable<Domain.Entity.BugTracker> query, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        private IEnumerable<Domain.Entity.BugTracker> addFilter(IEnumerable<Domain.Entity.BugTracker> query, BugTrackerFilter filter)
         {
-            if (!string.IsNullOrEmpty(trace))
+            if (!string.IsNullOrEmpty(filter.Trace))
             {
-                query = query.Where(_ => _.Description.Contains(trace));
+                query = query.Where(_ => _.Description.ToLower().Contains(filter.Trace.ToLower()));
             }
 
-            if (status != null )
+            if (filter.Status != null)
             {
-                query = query.Where(_ => status.Contains(_.Status));
+                query = query.Where(_ => filter.Status.Contains(_.Status));
             }
 
             return query;
         }
 
-        //TODO: dois métodos praticamente iguais.
         public IList<dynamic> GetGraphicModelByIdApplication(int id)
         {
             using (var db = new DataContext())

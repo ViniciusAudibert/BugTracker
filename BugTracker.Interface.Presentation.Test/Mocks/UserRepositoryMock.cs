@@ -8,7 +8,7 @@ using BugTracker.Domain.Entity;
 
 namespace BugTracker.Interface.Presentation.Test.Mocks
 {
-    class UserRepositoryMock : IUserRepository
+    public class UserRepositoryMock : IUserRepository
     {
         public List<User> Users;
 

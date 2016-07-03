@@ -54,12 +54,26 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTests\ApplicationServiceTest.cs" />
+    <Compile Include="ServiceTests\BugTrackerServiceTest.cs" />
     <Compile Include="ServiceTests\UserActvationTest.cs" />
+    <Compile Include="ServiceTests\UserRecoveryServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">
       <Project>{5B108B0A-73E7-4ABF-A015-7729DEC195CE}</Project>
       <Name>BugTracker.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BugTracker.Infra.Repository\BugTracker.Infra.Repository.csproj">
+      <Project>{A51ADAA6-E546-4CD3-8524-6A0DA8C049E1}</Project>
+      <Name>BugTracker.Infra.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BugTracker.Interface.Presentation.Test\BugTracker.Interface.Presentation.Test.csproj">
+      <Project>{704322a9-460f-4a2c-99f1-0206dea12b14}</Project>
+      <Name>BugTracker.Interface.Presentation.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interface.Presentation\BugTracker.Interface.Presentation.csproj">
+      <Project>{8154B41C-838D-4431-AAB0-231D6E9F2DF9}</Project>
+      <Name>BugTracker.Interface.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -3,17 +3,25 @@
     ViewBag.Title = "Home";
 }
 <div class="row">
-    <div class="panel panel-success col-md-6 box">
+    <div class="panel panel-success col-md-7 box">
         <div class="panel-heading">
             <h4>Applications</h4>
         </div>
         <div class="panel-body">
-            <div class="row">
-                <form action="~/User/Search/" method="post">
-                    <input type="text" class="form-control" name="name" placeholder="App name...">
-                    <input href="~/User/Search/" class="btn btn-success col-sm-2 glyphicon glyphicon-zoom-in" type="submit" value="Search" />
+            <div class="row filter-app">
+                <form action="~/User/Search/" method="post" class="form-horizontal" role="form">
+                    <div class="form-inline">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control align-input-text" value="@ViewBag.FilterName" name="name" placeholder="App name...">
+                        </div>
+                        <div class="col-md-4">
+                            <input href="~/User/Search/" class="btn btn-success" type="submit" value="Search" />
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <a href="~/Application/RegisterApp/" class="btn btn-success">New App</a>
+                        </div>
+                    </div>
                 </form>
-                <a href="~/Application/RegisterApp/" class="btn btn-success col-sm-2">New App</a>
             </div>
             <table class="table">
                 <thead>
@@ -60,7 +68,7 @@
             </table>
         </div>
     </div>
-    <div class="panel panel-success col-md-5 box">
+    <div class="panel panel-success col-md-4 box">
         <div class="panel-heading">
             <h4>Today</h4>
         </div>

@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="Mocks\ActivationRepositoryMock.cs" />
     <Compile Include="Mocks\ApplicationRepositoryMock.cs" />
+    <Compile Include="Mocks\BugTrackerRepositoryMock.cs" />
+    <Compile Include="Mocks\UserRecoveryRepositoryMock.cs" />
     <Compile Include="Mocks\UserRepositoryMock.cs" />
     <Compile Include="UnitTests\ApplicationControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
