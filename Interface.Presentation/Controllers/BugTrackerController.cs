@@ -8,6 +8,7 @@ using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -35,17 +36,15 @@ namespace Interface.Presentation.Controllers
         {
             var request = HttpContext.Request;
 
-            mail.Send("vini.audibert@gmail.com", "Track", HttpContext.Request.Url.Host, false);
-
-                        var application = 
+            var application =
                 applicationService.FindByUrlAndUserHashCode(
-                    HttpContext.Request.Url.Host,
-                    bugTrackerPostModel.HashCode
-                 );
+                HttpContext.Request.UrlReferrer.Host,
+                bugTrackerPostModel.HashCode
+            );
 
             if (application == null)
             {
-                return Json(new { Application = "Null" },JsonRequestBehavior.AllowGet);
+                return Json(new { Application = "Null" }, JsonRequestBehavior.AllowGet);
                 //throw new HttpException(
                 //    (int)HttpStatusCode.BadRequest,
                 //    "Domain invalid or Libray broke. Verify your domain in painel and download again library."
