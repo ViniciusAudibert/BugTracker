@@ -16,6 +16,7 @@ using Domain = BugTracker.Domain;
 
 namespace Interface.Presentation.Controllers
 {
+    [AllowOriginAttributeConfig]
     public class BugTrackerController : Controller
     {
         private IBugTrackerService bugTrackerService;
@@ -28,7 +29,6 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
-        [AllowOriginAttributeConfig]
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
             var request = HttpContext.Request;
@@ -41,10 +41,11 @@ namespace Interface.Presentation.Controllers
 
             if (application == null)
             {
-                throw new HttpException(
-                    (int)HttpStatusCode.BadRequest,
-                    "Domain invalid or Libray broke. Verify your domain in painel and download again library."
-                );
+                return Json(new { Application = "Null" },JsonRequestBehavior.AllowGet);
+                //throw new HttpException(
+                //    (int)HttpStatusCode.BadRequest,
+                //    "Domain invalid or Libray broke. Verify your domain in painel and download again library."
+                //);
             }
 
             if (!ModelState.IsValid)
