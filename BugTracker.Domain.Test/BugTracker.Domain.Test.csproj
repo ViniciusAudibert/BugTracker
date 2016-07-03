@@ -61,10 +61,6 @@
       <Project>{5B108B0A-73E7-4ABF-A015-7729DEC195CE}</Project>
       <Name>BugTracker.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BugTracker.Interface.Presentation.Test\BugTracker.Interface.Presentation.Test.csproj">
-      <Project>{704322a9-460f-4a2c-99f1-0206dea12b14}</Project>
-      <Name>BugTracker.Interface.Presentation.Test</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
