@@ -35,7 +35,7 @@ namespace Interface.Presentation.Controllers
 
             var application = 
                 applicationService.FindByUrlAndUserHashCode(
-                    HttpContext.Request.Url.Host,
+                    HttpContext.Request.Url.Authority,
                     bugTrackerPostModel.HashCode
                  );
 
