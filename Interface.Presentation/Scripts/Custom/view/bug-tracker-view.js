@@ -44,7 +44,7 @@ BugTrackerView.prototype.loadData = function () {
 BugTrackerView.prototype.showCountBugs = function () {
     this.bModel.countBugs(self.filters).done(function (data) {
         for (var i in data.data) {
-            $('#count-bugs').append($('<span>').addClass(data.status[data.data[i].Status - 1]).html(data.data[i].Count));
+            $('#count-bugs').append($('<span>').addClass("glyphicon glyphicon-alert " + data.status[data.data[i].Status - 1]).html(data.data[i].Count));
         }
     });
 };

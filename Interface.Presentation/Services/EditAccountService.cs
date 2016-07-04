@@ -13,9 +13,12 @@ namespace Interface.Presentation.Services
 
         public static void EditUser(UserEditAccountViewModel model, IUserService userService)
         {
+            var idUser = UserSessionService.LoggedUser.IDUser;
 
-            var userFounded = userService.FindById(UserSessionService.LoggedUser.IDUser);
+            var userFounded = userService.FindById(idUser);
+
             String fileName = model.Image;
+
             String oldPassword = userFounded.Password;
 
             if (model.File != null)
@@ -28,7 +31,7 @@ namespace Interface.Presentation.Services
                 
                 if (userService.ComparePassword(oldPassword, model.NewPassword))
                 {
-                    var editedAccount = new User(model.Id.Value, model.Name, model.Email, model.NewPassword,
+                    var editedAccount = new User(idUser, model.Name, model.Email, model.NewPassword,
                                          fileName, model.HashCode, null, true, true);
 
                     userService.Update(editedAccount);
@@ -37,7 +40,7 @@ namespace Interface.Presentation.Services
             }
             else
             {
-                var editedAccount = new User(model.Id.Value, model.Name,
+                var editedAccount = new User(idUser, model.Name,
                                          model.Email, null,
                                          fileName, Guid.NewGuid().ToString() + new Random().Next(100), null, true, true);
 

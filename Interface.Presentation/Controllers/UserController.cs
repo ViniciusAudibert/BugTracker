@@ -20,7 +20,7 @@ namespace Interface.Presentation.Controllers
         private IApplicationService applicationService;
         private IDownloadService downloadService;
         private IUserService userService;
-
+        
 
         public UserController()
         {
@@ -68,6 +68,7 @@ namespace Interface.Presentation.Controllers
 
         [UserToken]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditAccount(UserEditAccountViewModel model)
         {
 
@@ -76,6 +77,21 @@ namespace Interface.Presentation.Controllers
 
             return View("account", model);
             
+        }
+
+        [UserToken]
+        [HttpPost]
+        public ActionResult ChangePerfilImage(HttpPostedFileBase file)
+        {
+            if(file != null)
+            {
+                var imageName = UploadImageService.UploadUserImage(file);
+
+                userService.UpdateImage(UserSessionService.LoggedUser.IDUser, imageName);
+
+                UserSessionService.RefreshUserImageSession(imageName);
+            }
+            return RedirectToAction("Account");
         }
 
         [UserToken]
@@ -89,7 +105,7 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public FileResult DownloadLibrary(string type)
         {
-            User user = userService.FindById( UserSessionService.LoggedUser.IDUser);
+            User user = userService.FindById(UserSessionService.LoggedUser.IDUser);
 
             downloadService.SetPath(Server.MapPath("~/Library/"));
             downloadService.CreateFileForUser(user);

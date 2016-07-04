@@ -12,4 +12,6 @@ $(function () {
             content: 'Are you sure to delete this application?' + '<a href="/Application/DeleteApp/' + self.attr('data-delete-id') + '">Yes</a>'
         });
     })
+    
+    $('[data-toggle="tooltip"]').tooltip();
 });

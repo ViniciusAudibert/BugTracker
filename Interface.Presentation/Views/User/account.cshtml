@@ -1,8 +1,10 @@
 ﻿
 @model Interface.Presentation.Models.User.UserEditAccountViewModel
+
 @{
     ViewBag.Title = "Account";
 }
+
 <div class="row">
     <div class="panel panel-success col-md-8 box">
         <div class="panel-heading">
@@ -10,7 +12,17 @@
         </div>
         <div class="panel-body">
             <div class="col-md-6">
-                <img src="~/Content/Images/User/@Model.Image" class="avatar foto" alt="avatar">
+                @using (Html.BeginForm("ChangePerfilImage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <label href="#" class="btn btn-file">
+                        <img src="~/Content/Images/User/@Model.Image" class="avatar foto" alt="avatar" id="imgPerfilShow">
+                        @Html.TextBoxFor(model => model.File, new { type = "file", style = "display:none;", id = "imgInput" })
+                    </label>
+                    <label style="display:none;" id="project-img">
+                        Did you like it ? <br>Then do not forget to
+                        <input type="submit" class="btn-img-perfil" id="change-image-perfil" value="save changes" />
+                    </label>
+                }
             </div>
             <ul class="col-md-2 list-unstyled">
                 <li>@Html.DisplayFor(model => model.Name)</li>
@@ -48,13 +60,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.File, new { type = "file" })
-                        @Html.ValidationMessageFor(model => model.File)
-                    </div>
-                </div>
-                <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Save Changes" class="btn btn-default" />
                         <input id="edit-password" type="button" value="Edit Password" class="btn btn-default" />
@@ -62,7 +67,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        
+
                     </div>
                 </div>
             </div>

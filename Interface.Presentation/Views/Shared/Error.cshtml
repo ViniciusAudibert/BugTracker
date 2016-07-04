@@ -1,0 +1,12 @@
+﻿@model System.Web.Mvc.HandleErrorInfo 
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section id="error" class="container">
+    <h1>500, Internal Error</h1>
+    <p>An error occured while processing your request</p>
+    <a class="btn btn-success" href=@Url.Action("Index","Home")>GO BACK TO THE HOMEPAGE</a>
+</section>

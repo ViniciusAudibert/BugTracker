@@ -16,8 +16,8 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
         {
             Users = new List<User>();
             var userTest = new User();
-            var user1 = new User(1, "User Test 1", "teste@1", "test", "default", "hash", null, true, true);
-            var user2 = new User(2, "User Test 2", "teste@2", "test", "default", "hash", null, true, true);
+            var user1 = new User(1, "User Test 1", "teste@1", "test", "default", "hash", null, true, false);
+            var user2 = new User(2, "User Test 2", "teste@2", "test", "default", "hash", null, true, false);
 
             Users.Add(user1);
             Users.Add(user2);
@@ -25,22 +25,30 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public void ActiveAccount(User user)
         {
-            throw new NotImplementedException();
+            var userToActive = Users.FirstOrDefault( x => x.IDUser == user.IDUser);
+        
+            Users.Remove(user);
+            userToActive.AccountConfirmed = true;
+            Users.Add(userToActive);
+        
+            
         }
 
         public User Add(User user)
         {
-            throw new NotImplementedException();
+            Users.Add(user);
+
+            return user;
         }
 
         public User FindByAuthentication(string email, string password)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x => x.Email == email && x.Password == password);
         }
 
         public User FindByEmail(string email)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x => x.Email == email);
         }
 
         public User FindById(int id)
@@ -50,7 +58,11 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public User Update(User user)
         {
-            throw new NotImplementedException();
+            var userToEdit = this.FindById(user.IDUser);
+            Users.Remove(userToEdit);
+            userToEdit = user;
+            Users.Add(userToEdit);
+            return userToEdit;
         }
     }
 }

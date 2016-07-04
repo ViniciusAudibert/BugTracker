@@ -8,7 +8,6 @@ using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,12 +17,10 @@ using Domain = BugTracker.Domain;
 
 namespace Interface.Presentation.Controllers
 {
-    [AllowOriginAttributeConfig]
     public class BugTrackerController : Controller
     {
         private IBugTrackerService bugTrackerService;
         private IApplicationService applicationService;
-        private IMailService mail = MailServiceInjection.Create();
 
         public BugTrackerController()
         {
@@ -32,39 +29,33 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
+        [AllowOriginAttributeConfig]
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
             var request = HttpContext.Request;
+            JsonResult returnJson;
 
             var application =
                 applicationService.FindByUrlAndUserHashCode(
                 HttpContext.Request.UrlReferrer.Host,
-                bugTrackerPostModel.HashCode
-            );
+                    bugTrackerPostModel.HashCode
+                 );
 
             if (application == null)
             {
-                return Json(new { Application = "Null" }, JsonRequestBehavior.AllowGet);
-                //throw new HttpException(
-                //    (int)HttpStatusCode.BadRequest,
-                //    "Domain invalid or Libray broke. Verify your domain in painel and download again library."
-                //);
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                returnJson = Json(new { error = "Domain invalid or Libray broke. Verify your domain in painel and download again library." });
             }
 
             if (!ModelState.IsValid)
             {
-                throw new HttpException(
-                    (int)HttpStatusCode.BadRequest,
-                    string.Join("; ", ModelState.Values
-                        .SelectMany(x => x.Errors)
-                        .Select(x => x.ErrorMessage)
-                    )
-                );
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                returnJson = Json(new { error = string.Join("; ", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)) });
             }
 
             try
             {
-                bugTrackerService.Add(
+                var sendEmail = bugTrackerService.Add(
                     new Domain.Entity.BugTracker(
                         application,
                         bugTrackerPostModel.Status,
@@ -76,16 +67,25 @@ namespace Interface.Presentation.Controllers
                     )
                 );
 
-                return Json(new { msg = "Success!" });
+                if (sendEmail)
+                {
+                    TagMasterMail.SendTo(application.User.Email,application.Title);
+                }
+
+                returnJson = Json(new { msg = "Success!" });
             }
             catch (Domain.Exceptions.TagVeryLargeException e)
             {
-                throw new HttpException((int)HttpStatusCode.BadRequest, e.ToString());
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                returnJson = returnJson = Json(new { error = e.ToString() });
             }
             catch (Exception e)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, e.ToString());
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                returnJson = returnJson = Json(new { error = e.ToString() });
             }
+
+            return returnJson;
         }
 
         [HttpPost]

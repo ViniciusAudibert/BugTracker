@@ -9,7 +9,7 @@ namespace BugTracker.Domain.Entity
         public String Name { get; private set; }
         public String Email { get; private set; }
         public String Password { get; set; }
-        public String Image { get; private set; }
+        public String Image { get; set; }
         public String HashCode { get; private set; }
         public virtual ICollection<Application> Applications { get; private set; }
         public bool Active { get; set; }

@@ -14,9 +14,14 @@ namespace Interface.Presentation.Controllers
 {
     public class UserRecoveryController : Controller
     {
-        IUserRecoveryService userRecoveryService = UserRecoveryServiceInjection.Create();
+        IUserRecoveryService userRecoveryService;
+        IUserService userService;
 
-        IUserService userService = UserServiceInjection.Create();
+        public UserRecoveryController()
+        {
+            userRecoveryService = UserRecoveryServiceInjection.Create();
+            userService = UserServiceInjection.Create();
+        }
 
         [HttpPost]
         public ActionResult NewPassword(UserRecoveryViewModel userModel)

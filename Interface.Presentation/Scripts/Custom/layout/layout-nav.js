@@ -15,6 +15,7 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('#imgShow').attr('src', e.target.result);
+            $('#imgPerfilShow').attr('src', e.target.result);
             $('#project-img').slideDown('slow');
         }
 

@@ -16,8 +16,7 @@ namespace BugTracker.Infra.Repository.Map
             HasKey(_ => _.IDUserForgotPassword);
             HasRequired(a => a.RequestUser)
                 .WithMany(u => u.Forgots)
-                .HasForeignKey(a => a.IDUser)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(a => a.IDUser);
         }        
     }
 }

@@ -20,6 +20,11 @@ namespace Interface.Presentation.Controllers
             userService = UserServiceInjection.Create();
         }
 
+        public HomeController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {

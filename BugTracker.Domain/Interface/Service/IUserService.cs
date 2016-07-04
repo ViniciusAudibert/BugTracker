@@ -17,6 +17,6 @@ namespace BugTracker.Domain.Interface.Service
         void UpdatePassword(User user, string password);
         void ActiveAccount(User user);
         bool ComparePassword(String oldPassword, String newPassword);
-
+        void UpdateImage(int idUser, string imagePath);
     }
 }

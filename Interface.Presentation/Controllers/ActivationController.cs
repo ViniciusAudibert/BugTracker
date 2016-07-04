@@ -21,6 +21,12 @@ namespace Interface.Presentation.Controllers
             this.userService = UserServiceInjection.Create();
         }
 
+        public ActivationController(IActivationService activationService, IUserService userService)
+        {
+            this.activationService = activationService;
+            this.userService = userService;
+        }
+
         [HttpGet]
         public ActionResult Code(string code)
         {

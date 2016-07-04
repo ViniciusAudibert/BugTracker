@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section id="error" class="container">
+    <h1>404, Page not found</h1>
+    <p>The Page you are looking for doesn't exist.</p>
+    <a class="btn btn-success" href=@Url.Action("Index","Home")>GO BACK TO THE HOMEPAGE</a>
+</section>

@@ -17,6 +17,7 @@ namespace Interface.Presentation.Controllers
     {
         private IApplicationService applicationService;
         private IUserService userService;
+        
 
         public ApplicationController()
         {

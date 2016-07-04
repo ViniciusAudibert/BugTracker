@@ -11,28 +11,34 @@
 
     <div id="graphics"></div>
 </div>
- 
-<div class="panel panel-success col-md-11 box">
+
+<div class="row">
+    <div class="panel panel-success col-md-11 box">
         <div class="panel-heading">
             <h4>@Html.DisplayFor(model => model.Title) </h4>
         </div>
         <div class="panel-body">
-            <div id="count-bugs"></div>
+            <div id="count-bugs" class="text-center"></div>
             <div id="filters">
-                
-                @{
-                    int i = 1;
-                    
-                    foreach (String s in ViewBag.Status)
-                    {
-                        <input type="checkbox" id="Status" name="Status" value="@i" /> @s
-                        i++;
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" value="@ViewBag.FilterName" name="Trace" id="Trace" placeholder="Trace...">
+                </div>
+
+                <div class="col-md-3 status-filter">
+                    @{
+                        int i = 1;
+
+                        foreach (String s in ViewBag.Status)
+                        {
+                            <input type="checkbox" id="Status" class="align-input-text" name="Status" checked="checked" value="@i" /> @s
+                            i++;
+                        }
                     }
-                }
-
-                Trace: <input type="text" id="Trace" name="Trace"/>
-
-                <button id="filter" class="btn btn-success">Filter</button>
+                </div>
+                <div class="col-md-3">
+                    <button id="filter" class="btn btn-success">Filter</button>
+                </div>
             </div>
             <table class="table">
                 <thead>
@@ -50,15 +56,13 @@
             </table>
         </div>
     </div>
+</div>
+@section scripts{
 
-    @section scripts{
-        <script>
-            var idApplication = '@Model.IDApplication';
-        </script>
-        @Scripts.Render("~/bundles/graphics")
-        @Scripts.Render("~/bundles/application")
+    @Scripts.Render("~/bundles/application")
 
-        <script>
-            new BugTrackerView().init();
-        </script>
-    }
+    <script>
+        var idApplication = '@Model.IDApplication';
+        new BugTrackerView().init();
+    </script>
+}

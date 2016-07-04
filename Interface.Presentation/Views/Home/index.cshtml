@@ -4,7 +4,7 @@
 }
 
 @section css{
-    <link href="~/Content/Custom/sl-slide.css" rel="stylesheet" />
+    @Styles.Render("~/Content/slideSL")
 }
 
 <!--Slider-->
@@ -13,14 +13,13 @@
         <!--Slider Items-->
         <div class="sl-slider">
             <!--Slider Item1-->
-            <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
                 <div class="sl-slide-inner">
                     <div class="container">
-                        <img src="~/Content/Images/WebSite/logo.png" />
-                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img1.png" alt="" />
-                        <h2>Creative Ideas</h2>
-                        <h3 class="gap">We always keep everything updated</h3>
-                        <a class="btn btn-large btn-transparent" href=@Url.Action("Documentation", "Home")>Documentation</a>
+                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img3.png" alt="" />
+                        <h2>Unique Solutions</h2>
+                        <h3 class="gap">We already support all devices screens</h3>
+                        <a class="btn btn-large btn-transparent" href=@Url.Action("Register", "Home")>Register</a>
                     </div>
                 </div>
             </div>
@@ -38,13 +37,14 @@
             </div>
             <!--Slider Item2-->
             <!--Slider Item3-->
-            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
                 <div class="sl-slide-inner">
                     <div class="container">
-                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img3.png" alt="" />
-                        <h2>Unique Solutions</h2>
-                        <h3 class="gap">In a near future we will support all devices</h3>
-                        <a class="btn btn-large btn-transparent" href=@Url.Action("Register", "Home")>Register</a>
+                        <img src="~/Content/Images/WebSite/logo.png" id="logo-slider" />
+                        <img class="pull-right" src="~/Content/Images/WebSite/slider/img1.png" alt="" />
+                        <h2>Creative Ideas</h2>
+                        <h3 class="gap">We always keep everything updated</h3>
+                        <a class="btn btn-large btn-transparent" href=@Url.Action("Documentation", "Home")>Documentation</a>
                     </div>
                 </div>
             </div>
@@ -62,16 +62,14 @@
 </section>
 <!--/Slider-->
 
-
-
 <section class="main-info">
     <div class="container">
         <div class="row-fluid">
             <div class="span9">
-                <h4>Try, enjoy, do not pay</h4>
-                <p class="no-margin">Our service is totally free and safe, you just need to make an account</p>
+                <h4>Do try, do enjoy and do not pay</h4>
+                <p class="no-margin">Our service is totally free and safe, you just need to create an account</p>
             </div>
-            <div class="span3">
+            <div class="span3" id="reg-button">
                 <a class="btn btn-success btn-large pull-right" href=@Url.Action("Register", "Home")>Register now</a>
             </div>
         </div>
@@ -82,7 +80,7 @@
     <div class="container">
         <div class="center gap">
             <h3>What We Offer</h3>
-            <p class="lead">Look at some of our services and what does it can do</p>
+            <p class="lead">Look at some of our services and what it can do</p>
         </div>
         <div class="row-fluid">
             <div class="span4">
@@ -92,7 +90,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">Our service</h4>
-                        <p>BugTracker is basically a tracker of bugs that you will use in your website to make your clients better experiences</p>
+                        <p>BugTracker is basically a tracker of bugs that you will use in your website to provide your clients better experiences and it is really easy to include in your website application, check it out !</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +101,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">How does it work</h4>
-                        <p>You make an account for free in our website, register your website host, you can have up to 5 applications registered, you will be able to download our library to use in your website and what you need to do is use tags where your application can have bugs</p>
+                        <p>You create an account for free in our website and register your website host. You can have up to 5 applications registered and you will be able to download our library to use in your website and what you need to do is use tags where your application can have bugs.</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +112,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">Safe</h4>
-                        <p>You will recive a library to use in your website application and it will be unique for you. All personal information is encrypted with the best tecnology as possible so do not be afraid of information leakage, we are fully prepared to keep it in safe</p>
+                        <p>You will recive a library to use in your website application and it will be unique for you. All personal information are encrypted with the best tecnology avalible so do not worry about information leakage, we are fully prepared to keep it safe.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +126,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">Improvement</h4>
-                        <p>We are always testing and improving for better quality to make the best traker of your application, using our service you can see the bug what happened, when, where and how</p>
+                        <p>We are always testing and improving for better quality to make the best traker for your application. Using our service you can see what is the bug, what happened, when, where and how.</p>
                     </div>
                 </div>
             </div>
@@ -139,7 +137,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">Emails</h4>
-                        <p>You can choose a special tag an use in your application to send email for yourself, then you will know in the same time the bug happend</p>
+                        <p>You can choose a special tag an use it in your application to send an email to yourself and then you will know right away when the bug happens.</p>
                     </div>
                 </div>
             </div>
@@ -150,7 +148,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">Better sales</h4>
-                        <p>It is comproved that using our service, you will know all the bugs you have to fix and then you will make the best experience to your clients which is possible</p>
+                        <p>It is proved that using our service you will know all the bugs you have to fix and thus you will provide the best experience to your clients as possible.</p>
                     </div>
                 </div>
             </div>
@@ -158,7 +156,6 @@
     </div>
 </section>
 <!--/Services-->
-
 <!--Footer-->
 <footer id="footer">
     <div class="container">
@@ -178,45 +175,5 @@
 
 
 @section scripts{
-    @*@Scripts.Render("~/bundles/home")*@
-<script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <!-- Required javascript files for Slider -->
-    <script src="~/Scripts/jquery.ba-cond.min.js"></script>
-    <script src="~/Scripts/jquery.slitslider.js"></script>
-    <!-- /Required javascript files for Slider -->
-
-    <!-- SL Slider -->
-    <script type="text/javascript">
-        $(function () {
-            var Page = (function () {
-
-                var $navArrows = $('#nav-arrows'),
-                slitslider = $('#slider').slitslider({
-                    autoplay: true
-                }),
-
-                init = function () {
-                    initEvents();
-                },
-                initEvents = function () {
-                    $navArrows.children(':last').on('click', function () {
-                        slitslider.next();
-                        return false;
-                    });
-
-                    $navArrows.children(':first').on('click', function () {
-                        slitslider.previous();
-                        return false;
-                    });
-                };
-
-                return { init: init };
-
-            })();
-
-            Page.init();
-        });
-    </script>
-    <!-- /SL Slider -->
-
+    @Scripts.Render("~/bundles/slider-sl")
 }

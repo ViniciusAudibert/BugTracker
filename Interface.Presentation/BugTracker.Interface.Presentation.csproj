@@ -73,10 +73,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
       <Private>True</Private>
@@ -136,32 +132,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-sandstone.css" />
-    <Content Include="Content\bootstrap-sandstone.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Custom\index.css" />
+    <Content Include="Content\Custom\documentation.css" />
     <Content Include="Content\Custom\layout-home.css" />
     <Content Include="Content\Custom\layout.css" />
-    <Content Include="Content\Custom\panel.css" />
     <Content Include="Content\Custom\new-home.css" />
     <Content Include="Content\Custom\forms.css" />
     <Content Include="Content\Custom\sl-slide.css" />
-    <Content Include="Content\Images\Application\application-default.png" />
-    <Content Include="Content\Images\Application\Brazil.png" />
-    <Content Include="Content\Images\Application\bug-128.png" />
-    <Content Include="Content\Images\Application\Relational_1.png" />
-    <Content Include="Content\Images\User\Brazil.png" />
-    <Content Include="Content\Images\User\CBrazil.png" />
-    <Content Include="Content\Images\User\default-perfil.jpg" />
-    <Content Include="Content\Images\User\erros-de-einstein.jpg" />
-    <Content Include="Content\Images\WebSite\banner-top.png" />
-    <Content Include="Content\Images\WebSite\banner-web.png" />
-    <Content Include="Content\Images\WebSite\banner.png" />
-    <Content Include="Content\Images\WebSite\logo-m.png" />
-    <Content Include="Content\Images\WebSite\logo.png" />
-    <Content Include="Content\Images\WebSite\slider\img1.png" />
-    <Content Include="Content\Images\WebSite\slider\img2.png" />
-    <Content Include="Content\Images\WebSite\slider\img3.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -170,10 +148,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Library\bugTracker.js" />
-    <Content Include="Library\bugTracker_1.js" />
     <Content Include="Scripts\Custom\layout\jquery.ba-cond.min.js" />
     <Content Include="Scripts\Custom\layout\jquery.slitslider.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
+    <Content Include="Scripts\Custom\SliderSL\SliderSL.js" />
     <Content Include="Scripts\Custom\user\account.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
@@ -248,6 +226,7 @@
     <Compile Include="Controllers\ActivationController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginGitHubController.cs" />
@@ -265,6 +244,7 @@
     </Compile>
     <Compile Include="Helpers\BaseControllerEmpty.cs" />
     <Compile Include="Mail_Body\SendEmailToBugtracker.cs" />
+    <Compile Include="Mail_Body\TagMasterMail.cs" />
     <Compile Include="Mail_Body\UserActivationMail.cs" />
     <Compile Include="Mail_Body\UserRecoverPasswordMail.cs" />
     <Compile Include="Models\Application\ApplicationAndBugsViewModel.cs" />
@@ -297,9 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="packages.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\index.cshtml" />
@@ -318,6 +296,8 @@
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

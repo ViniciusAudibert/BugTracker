@@ -6,7 +6,7 @@
 }
 
 @section css{
-    <link href="~/Content/Custom/forms.css" rel="stylesheet" />
+    @Styles.Render("~/Content/forms")
 }
 
 @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form" }))
@@ -30,7 +30,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.PasswordFor(model => model.Password, new {  @class = "form-control", placeholder = "Your Password" })
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Your Password" })
                             </div>
                         </div>
                         <a class="link-forgot" href=@Url.Action("ForgotPassword","UserRecovery")>Forgot Password</a>

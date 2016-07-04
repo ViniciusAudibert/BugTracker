@@ -22,7 +22,7 @@
                     </button>
                 </div>
             </nav>
-            <div class="search hidden-xs hidden-sm">
+            <div class="search hidden-xs banner-top">
                 <a href=@Url.Action("Index", "User")><img src="~/content/images/website/banner-top.png" class="logo" /></a>
             </div>
         </div>
@@ -35,7 +35,7 @@
                             @{
                                 var imgPerfil = "~/content/images/user/" + Interface.Presentation.Services.UserSessionService.LoggedUser.Image;
                             }
-                            <img src="@Url.Content(imgPerfil)" alt="user">
+                            <img src="@Url.Content(imgPerfil)" alt="user" id="user-image">
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -63,7 +63,7 @@
                 <div class="navi">
                     <ul>
                         <li class="link" data-target-id="Home"><a href=@Url.Action("", "User")><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                        <li class="link" data-target-id="Donwload"><a href=@Url.Action("Download", "User")><i class="fa fa-download" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Download</span></a></liclass="link">
+                        <li class="link" data-target-id="Donwload"><a href=@Url.Action("Download", "User")><i class="fa fa-download" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Download</span></a></li class="link">
                         <li class="link" data-target-id="Doceument"><a href=@Url.Action("Documentation", "Home") target="_blank"><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Documentation</span></a></li>
                         <li class="link" data-target-id="Account"><a href=@Url.Action("Account", "User")><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
                     </ul>

@@ -1,7 +1,9 @@
 ﻿@model List<Interface.Presentation.Models.Application.ApplicationAndBugsViewModel>
+
 @{
     ViewBag.Title = "Home";
 }
+
 <div class="row">
     <div class="panel panel-success col-md-7 box">
         <div class="panel-heading">
@@ -45,8 +47,8 @@
                                     @Html.DisplayFor(modelItem => item.AppName)
                                 </td>
                                 <td>
-                                    <a href="#" data-toggle="tooltip" title="@item.Bug.Description">
-                                        <i class="fa fa-code" aria-hidden="true"></i>
+                                    <a href="#" data-toggle="tooltip" data-placement="right" title="@item.Bug.Description">
+                                        @(item.Bug.Description.Length <= 15 ? @item.Bug.Description : @item.Bug.Description.Substring(0, 14))
                                     </a>
                                 </td>
                                 <td>
@@ -57,11 +59,10 @@
                             {
                                 <td></td>
                                 <td></td>
-                                <td></td>
                             }
-                            <td><a href="~/Application/DetailsApp/@item.AppId" class="glyphicon glyphicon-th-list" alt="Detalhes"></a></td>
-                            <td><a href="~/Application/RegisterApp/@item.AppId" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                            <td><a href="#" class="glyphicon glyphicon-trash delete" alt="Exlcuir" data-delete-id="@item.AppId"></a></td>
+                            <td><a href="~/Application/DetailsApp/@item.AppId" class="fa fa-th-list" alt="Detalhes"></a></td>
+                            <td><a href="~/Application/RegisterApp/@item.AppId" class="fa fa-pencil" alt="Editar"></a></td>
+                            <td><a href="#" class="fa fa-trash-o delete" alt="Exlcuir" data-delete-id="@item.AppId"></a></td>
                         </tr>
                     }
                 </tbody>
@@ -86,8 +87,8 @@
                     {
                         <tr>
                             <td><a href="#"></a>@Html.DisplayFor(modelItem => item.AppName)</td>
-                            <td><span class="glyphicon glyphicon-alert warnings"></span>@item.TracksCountWarning</td>
-                            <td><span class="glyphicon glyphicon-alert errors"></span>@item.TracksCountError</td>
+                            <td><span class="fa fa-exclamation-triangle warnings table-icon"></span>@item.TracksCountWarning</td>
+                            <td><span class="fa fa-exclamation-triangle errors table-icon"></span>@item.TracksCountError</td>
                         </tr>
                     }
                 </tbody>

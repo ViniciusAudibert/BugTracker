@@ -58,6 +58,16 @@ namespace BugTracker.Domain.Service
             userRepository.Update(user);
         }
 
+        public void UpdateImage(int idUser, string imagePath)
+        {
+            User user = FindById(idUser);
+
+            user.Image = imagePath;
+
+            userRepository.Update(user);
+
+        }
+
         public bool ComparePassword(String oldPassword, String newPassword)
         {
             return this.Encrypt(newPassword).Equals(oldPassword);
@@ -99,6 +109,7 @@ namespace BugTracker.Domain.Service
                 return sBuilder.ToString();
             }
         }
+
 
     }
 }

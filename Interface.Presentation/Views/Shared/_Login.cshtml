@@ -12,9 +12,9 @@
 
             <input type="email" name="email" class = "input-small input-email", placeholder = "E-mail" />
 
-            <input type="password" name="password" class = "input-small", placeholder = "Password" />
+            <input type="password" id="input-password" name="password" class = "input-small", placeholder = "Password" />
 
-            <button type="submit" class="btn btn-info">Sign in</button>
+            <button type="submit" class="btn btn-info" id="btn-sign-in">Sign in</button>
         }
         <a href=@Url.Action("SignInGitHub","LoginGitHub") class="btn btn-success">GitHub</a>
         <a href=@Url.Action("Register", "Home") class="btn btn-warning">Register</a>

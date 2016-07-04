@@ -21,19 +21,6 @@ namespace BugTracker.Infra.Repository
         {
             this.Configuration.ProxyCreationEnabled = true;
             this.Configuration.LazyLoadingEnabled = true;
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-            modelBuilder.Properties<string>()
-             .Configure(p => p.HasColumnType("varchar"));
-
-            modelBuilder.Properties<string>()
-                .Configure(p => p.HasMaxLength(100));
-
-            modelBuilder.Properties()
-                .Where(p => p.Name == "ID" + p.ReflectedType.Name)
-                .Configure(p => p.IsKey());
 
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new UserRecoveryMap());

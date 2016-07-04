@@ -16,7 +16,7 @@ namespace BugTracker.Domain.Service
             this.emailService = emailService;
         }
 
-        public void Add(Entity.BugTracker bugTracker)
+        public bool Add(Entity.BugTracker bugTracker)
         {
             if (bugTracker.ValidateTags())
             {
@@ -26,19 +26,14 @@ namespace BugTracker.Domain.Service
 
                 if (existsTagMaster != null)
                 {
-                    this.emailService.Send
-                    (
-                        bugTracker.Application.User.Email,
-                        "Critical error in Application " + bugTracker.Application.Description,
-                        "adsadasdsad",
-                        false
-                    );
+                    return true;
                 }
             }
             else
             {
                 throw new TagVeryLargeException();
             }
+            return false;
         }
 
         public ICollection<Entity.BugTracker> FindByIDApplication(int id)

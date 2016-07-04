@@ -1,21 +1,46 @@
 ﻿@model List<Interface.Presentation.Models.BugTracker.BugTrackerViewModel>
+
 @foreach (var bug in Model)
 {
     <tr>
         <td>
-            <a href="#" data-toggle="tooltip" title="@bug.Trace">
-                <i class="fa fa-code" aria-hidden="true"></i>
+            <a data-toggle="modal" data-target="#myModal" data-value="@bug.Trace" class="trace">
+                @(bug.Trace.Length <= 15 ? @bug.Trace : @bug.Trace.Substring(0, 14))
             </a>
         </td>
         <td>@bug.Status</td>
         <td>@bug.OccuredDate.ToString("dd/MM/yyyy HH:mm")</td>
         <td>
-            <a href="#" data-toggle="tooltip" title="@bug.Tags">
-                <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="#" data-toggle="tooltip" data-placement="right" title="@bug.Tags">
+                <i class="fa fa-tags table-icon" aria-hidden="true"></i>
             </a>
         </td>
         <td>@bug.Browser.Name</td>
         <td>@bug.Browser.Version</td>
         <td>@bug.OperationalSystem.Name</td>
     </tr>
-}   
+}
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Trace details</h4>
+            </div>
+            <div class="modal-body" id="trace-content">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('table').on('click', '.trace', function () {
+        $('#trace-content').html($(this).attr('data-value'));
+    });
+
+    $('[data-toggle="tooltip"]').tooltip();
+</script>

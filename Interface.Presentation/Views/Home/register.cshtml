@@ -6,7 +6,7 @@
 }
 
 @section css{
-    <link href="~/Content/Custom/forms.css" rel="stylesheet" />
+    @Styles.Render("~/Content/forms")
 }
 
 @using (Html.BeginForm("NewRegister", "Home", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))

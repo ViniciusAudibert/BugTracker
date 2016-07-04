@@ -12,11 +12,13 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
     {
 
         public List<UserActivation> ActavationList;
+        public UserRepositoryMock UserRepositoryMock;
 
         public ActivationRepositoryMock()
         {
+            UserRepositoryMock = new UserRepositoryMock();
             ActavationList = new List<UserActivation>();
-            var user = new User();
+            var user = UserRepositoryMock.FindById(1);
             var actvation1 = new UserActivation("hash test 1", 1, user);
             var actvation2 = new UserActivation("hash test 2", 2, user);
 

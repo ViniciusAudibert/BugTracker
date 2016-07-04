@@ -2,7 +2,7 @@
 
 function CwiTracker() {
     this.hashCode = hash_code_user;
-    this.urlPost = '/BugTracker/Add';
+    this.urlPost = 'http://bugtracker-5.apphb.com/BugTracker/Add';
     this.ERROR = 1;
     this.INFO = 2;
     this.WARNING = 3;

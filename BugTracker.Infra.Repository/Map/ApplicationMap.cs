@@ -11,8 +11,7 @@ namespace BugTracker.Infra.Repository.Map
             HasKey(x => x.IDApplication);
             HasRequired(a => a.User)
                 .WithMany(u => u.Applications)
-                .HasForeignKey(a => a.IDUser)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(a => a.IDUser);
         }
     }
 }
