@@ -11,13 +11,16 @@ namespace Interface.Presentation.Models.User
         public int? Id { get; set; }
 
         [Required(ErrorMessage = "Name is required")]
+        [StringLength(80, ErrorMessage = "Maximun of 80 characters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Email address is required")]
+        [StringLength(90, ErrorMessage = "Maximun of 90 characters")]
         [DisplayName("E-mail")]
         [EmailAddress]
         public string Email { get; set; }
 
+        [StringLength(100, ErrorMessage = "Maximun of 100 characters")]
         public String Image { get; set; }
 
         [DisplayName("New Photo")]
@@ -28,14 +31,14 @@ namespace Interface.Presentation.Models.User
         [DisplayName("Old Password")]
         [RegularExpression(@"^(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password must have: minimun length of 8 characters, a number, a low case word and a hight case word.")]
         [DataType(DataType.Password)]
-        [StringLength(100)]
+        [StringLength(50, ErrorMessage = "Maximun of 50 characters")]
         public String OldPassword { get; set; }
 
 
         [DisplayName("New Password")]
         [RegularExpression(@"^(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password must have: minimun length of 8 characters, a number, a low case word and a hight case word.")]
         [DataType(DataType.Password)]
-        [StringLength(100)]
+        [StringLength(50, ErrorMessage = "Maximun of 50 characters")]
         public String NewPassword { get; set; }
 
         [DataType(DataType.Password)]
@@ -43,6 +46,7 @@ namespace Interface.Presentation.Models.User
         [Compare("NewPassword", ErrorMessage = "Password do not match")]
         public string ConfirmPassword { get; set; }
 
+        [StringLength(200, ErrorMessage = "Maximun of 200 characters")]
         public string HashCode { get; set; }
     }
 }

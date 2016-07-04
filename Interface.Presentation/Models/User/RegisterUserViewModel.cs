@@ -11,10 +11,12 @@ namespace Interface.Presentation.Models.User
     public class RegisterUserViewModel
     {
         [Required(ErrorMessage = "Name is required")]
+        [StringLength(80, ErrorMessage = "Maximun of 80 characters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Email address is required")]
         [DisplayName("E-mail")]
+        [StringLength(90, ErrorMessage = "Maximun of 90 characters")]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -27,11 +29,13 @@ namespace Interface.Presentation.Models.User
         [Required(ErrorMessage = "Password is required")]
         [RegularExpression(@"^(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password must have: minimun length of 8 characters, a number, a low case word and a hight case word.")]
         [DataType(DataType.Password)]
-        [StringLength(100)]
+        [StringLength(50, ErrorMessage = "Maximun of 50 characters")]
         public String Password { get; set; }
 
+        [PasswordPropertyText(true)]
         [Required(ErrorMessage = "Confirm your password please")]
         [DataType(DataType.Password)]
+        [StringLength(50, ErrorMessage = "Maximun of 50 characters")]
         [DisplayName("Confirm Password")]
         [Compare("Password", ErrorMessage = "Password do not match")]
         public string ConfirmPassword { get; set; }
