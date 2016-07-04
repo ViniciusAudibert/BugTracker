@@ -14,10 +14,16 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public UserRepositoryMock()
         {
+            var app1 = new Application();
+            var app2 = new Application();
+            var appList = new List<Application>();
+            appList.Add(app1);
+            appList.Add(app2);
+
             Users = new List<User>();
             var userTest = new User();
-            var user1 = new User(1, "User Test 1", "teste@1", "test", "default", "hash", null, true, false);
-            var user2 = new User(2, "User Test 2", "teste@2", "test", "default", "hash", null, true, false);
+            var user1 = new User(1, "User Test 1", "teste@1", "test", "default", "hash", appList, true, false);
+            var user2 = new User(2, "User Test 2", "teste@2", "test", "default", "hash", appList, true, false);
 
             Users.Add(user1);
             Users.Add(user2);

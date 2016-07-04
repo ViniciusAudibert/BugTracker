@@ -7,9 +7,6 @@ using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using Interface.Presentation.Extensions;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -28,6 +25,14 @@ namespace Interface.Presentation.Controllers
             userService = UserServiceInjection.Create();
             downloadService = DownloadServiceInjection.Create();
         }
+
+        public UserController(IApplicationService applicationService, IUserService userService)
+        {
+            this.applicationService = applicationService;
+            this.userService = userService;
+            
+        }
+
 
         [UserToken]
         [HttpGet]

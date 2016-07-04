@@ -38,5 +38,11 @@ namespace BugTracker.Domain.Entity
         {
             this.IDApplication = id;
         }
+
+        public Application(int id, String title, String description, String url, bool active, String image, String tag, int IdUser, User user, List<BugTracker> busList) : this(id, title, description, url, active, image, tag, IdUser, user)
+        {
+            BugTrackers = busList;
+        }
+
     }
 }

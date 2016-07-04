@@ -15,10 +15,16 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public ApplicationRepositoryMock()
         {
+
+
             AppsList = new List<Application>();
+            var BugList = new List<Domain.Entity.BugTracker>();
+
             var userTest = new User("user test", "test@amil", "password", "default", "test hash", null, true, true);
-            var app1 = new Application(1, "Test1", "app to test", "www.test1", true, "default", "tag", 1, userTest);
-            var app2 = new Application(2, "Test2", "app to test", "www.test2", true, "default", "tag", 1, userTest);
+            var app1 = new Application(1, "Test1", "app to test", "www.test1", true, "default", "tag", 1, userTest, BugList);
+            var app2 = new Application(2, "Test2", "app to test", "www.test2", true, "default", "tag", 1, userTest, BugList);
+            
+            
 
             AppsList.Add(app1);
             AppsList.Add(app2);

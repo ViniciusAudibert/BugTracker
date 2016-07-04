@@ -106,13 +106,6 @@ namespace Interface.Presentation.Controllers
             }
             return RedirectToAction("Index","Login");
         }
-
-        //TODO: (Remover) Exemplo de upload de imagem
-        public ActionResult Upload(HttpPostedFileBase file)
-        {
-            UploadImageService.UploadUserImage(file);
-
-            return RedirectToAction("Index");
-        }
+        
     }
 }

@@ -85,6 +85,10 @@
     padding: 20px;
 }
 
+.modal-content{
+    word-wrap: break-word
+}
+
 html, body {
     height: 100%;
 }
