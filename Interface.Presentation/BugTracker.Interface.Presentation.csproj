@@ -153,7 +153,6 @@
     <Content Include="Content\Custom\forms.css" />
     <Content Include="Content\Custom\sl-slide.css" />
     <Content Include="Content\Images\Application\application-default.png" />
-    <Content Include="Content\Images\Application\bug-128.png" />
     <Content Include="Content\Images\User\bug-128.png" />
     <Content Include="Content\Images\User\default-perfil.jpg" />
     <Content Include="Content\Images\WebSite\banner-top.png" />
