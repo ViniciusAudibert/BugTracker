@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="panel panel-success col-md-11 box">
+<div class="panel panel-success col-md-11 box full-width">
     <div class="panel-heading">
         <h4>Graphics</h4>
     </div>
@@ -12,8 +12,7 @@
     <div id="graphics"></div>
 </div>
 
-<div class="row">
-    <div class="panel panel-success col-md-11 box">
+    <div class="panel panel-success col-md-11 box full-width">
         <div class="panel-heading">
             <h4>@Html.DisplayFor(model => model.Title) </h4>
         </div>
@@ -36,7 +35,7 @@
                         }
                     }
                 </div>
-                <div class="col-md-5 actions-table">
+                <div class="col-md-5">
                     <button id="filter" class="btn btn-success btn-hover-green">Filter</button>
                     <button class="btn btn-success dropdown-toggle btn-hover-green" type="button" id="dropdown-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Export
@@ -48,8 +47,8 @@
                             {
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="IdApplication" id="pdf_idApplication" />
-                                    <input type="hidden" name="Track" id="pdf_track" />
-                                    <button class="btn btn-success" type="submit"> Pdf </button>
+                                <input type="hidden" name="Track" id="pdf_track" />
+                                <button class="btn btn-success" type="submit"> Pdf </button>
                             }
                         </li>
                         <li>
@@ -57,8 +56,8 @@
                             {
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="IdApplication" id="txt_idApplication" />
-                                    <input type="hidden" name="Track" id="txt_track" />
-                                    <button class="btn btn-success" type="submit"> Txt </button>
+                                <input type="hidden" name="Track" id="txt_track" />
+                                <button class="btn btn-success" type="submit"> Txt </button>
                             }
                         </li>
                     </ul>
@@ -80,7 +79,6 @@
             </table>
         </div>
     </div>
-</div>
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="modal" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">

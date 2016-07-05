@@ -26,7 +26,7 @@ namespace Interface.Presentation.Mail_Body
 
             var model = new EmailModel()
             {
-                Link = "http://bugtracker-5.apphb.com/userrecovery/code?code=" + code,
+                Link = "http://localhost:58173/userrecovery/code?code=" + code,
                 Body = "A request of a new password was made in BugTracker website, click on the button bellow to change your password"
             };
 

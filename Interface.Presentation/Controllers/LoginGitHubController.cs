@@ -14,7 +14,7 @@ namespace Interface.Presentation.Controllers
     public class LoginGitHubController : Controller
     {
         const string clientId = "d6fe6834f30081cf609d";
-        private const string clientSecret = "602dee9f9aae53d622d418fbf60a7045e6851330";
+        private const string clientSecret = "d829abc7d3a9435cdae06599d698106f9066420d";
 
         IUserService userService = UserServiceInjection.Create();
 
@@ -35,7 +35,7 @@ namespace Interface.Presentation.Controllers
                 var token = await client.Oauth.CreateAccessToken(
                     new OauthTokenRequest(clientId, clientSecret, code)
                     {
-                        RedirectUri = new Uri("http://bugtracker-5.apphb.com/logingithub/githubauthentication")
+                        RedirectUri = new Uri("http://localhost:58173/logingithub/githubauthentication")
                     });
                 Session["OAuthToken"] = token.AccessToken;
             }

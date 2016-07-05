@@ -84,7 +84,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td><a href="#"></a>@Html.DisplayFor(modelItem => item.AppName)</td>
+                            <td><a href="~/Application/DetailsApp/@item.AppId">@Html.DisplayFor(modelItem => item.AppName)</a></td>
                             <td><span class="fa fa-exclamation-triangle warnings table-icon"></span>@item.TracksCountWarning</td>
                             <td><span class="fa fa-exclamation-triangle errors table-icon"></span>@item.TracksCountError</td>
                         </tr>

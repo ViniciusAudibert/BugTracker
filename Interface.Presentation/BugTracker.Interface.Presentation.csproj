@@ -153,8 +153,17 @@
     <Content Include="Content\Custom\forms.css" />
     <Content Include="Content\Custom\sl-slide.css" />
     <Content Include="Content\Images\Application\application-default.png" />
+    <Content Include="Content\Images\Application\Brazil.png" />
+    <Content Include="Content\Images\Application\bug-128.png" />
+    <Content Include="Content\Images\Application\Relational_1.png" />
+    <Content Include="Content\Images\User\Brazil.png" />
     <Content Include="Content\Images\User\bug-128.png" />
+    <Content Include="Content\Images\User\CBrazil.png" />
+    <Content Include="Content\Images\User\Cbug-128.png" />
+    <Content Include="Content\Images\User\Cperfil-padrao.jpg" />
     <Content Include="Content\Images\User\default-perfil.jpg" />
+    <Content Include="Content\Images\User\erros-de-einstein.jpg" />
+    <Content Include="Content\Images\User\perfil-padrao.jpg" />
     <Content Include="Content\Images\WebSite\banner-top.png" />
     <Content Include="Content\Images\WebSite\banner-web.png" />
     <Content Include="Content\Images\WebSite\banner.png" />

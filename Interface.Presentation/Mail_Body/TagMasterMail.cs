@@ -17,7 +17,7 @@ namespace Interface.Presentation.Mail_Body
         {
             var model = new EmailModel()
             {
-                Link = "http://bugtracker-5.apphb.com/User",
+                Link = "http://localhost:58173/User",
                 Body = "A critical bug war reported in your application \"" + title + "\" click the button bellow and check it"
             };
 
