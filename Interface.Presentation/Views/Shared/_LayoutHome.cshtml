@@ -20,6 +20,8 @@
                 <ul class="nav">
                     <li class="nav-link" data-target-id="Home"><a href=@Url.Action("Index", "Home")>Home</a></li>
                     <li class="nav-link" data-target-id="Documentation"><a href=@Url.Action("Documentation", "Home")>Documentation</a></li>
+                </ul>
+                <ul class="nav">
                     <li class="nav-link" data-target-id="MyPanel"><a href=@Url.Action("Index", "User")>My Panel</a></li>
                     <li class="nav-link" data-target-id="Contact"><a href=@Url.Action("Contact", "Home")>Contact</a></li>
                     <li class="login">
@@ -42,7 +44,7 @@
     </div>
 
     @Html.Partial("_Login")
-    
+
     @Scripts.Render("~/bundles/layout-home")
 
     @RenderSection("scripts", false)

@@ -29,10 +29,10 @@ namespace Interface.Presentation.App_Start
                         "~/Scripts/Custom/User/account.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/slider-sl").Include(
-            "~/Scripts/modernizr-2.6.2.js",
-            "~/Scripts/jquery.ba-cond.min.js",
-            "~/Scripts/jquery.slitslider.js",
-            "~/Scripts/Custom/SliderSL/SliderSL.js"));
+                        "~/Scripts/modernizr-2.6.2.js",
+                        "~/Scripts/jquery.ba-cond.min.js",
+                        "~/Scripts/jquery.slitslider.js",
+                        "~/Scripts/Custom/SliderSL/SliderSL.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/layout").Include(

@@ -12,7 +12,10 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.Application.Include("BugTrackers").Where(_ => _.IDUser == IDUser && _.Active == true).ToList();
+                return db.Application
+                    .Include("BugTrackers")
+                    .Where(_ => _.IDUser == IDUser && _.Active == true)
+                    .ToList();
             }
         }
 
@@ -72,7 +75,10 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.Application.Include("BugTrackers").Where(_ => _.Title.Contains(name) && _.Active == true).ToList();
+                return db.Application
+                    .Include("BugTrackers")
+                    .Where(_ => _.Title.Contains(name) && _.Active == true)
+                    .ToList();
             }
         }
 
@@ -94,7 +100,6 @@ namespace BugTracker.Infra.Repository.DataEntity
                             TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()                            
                         }
                     ).ToList();
-                
             }
         }
 

@@ -19,14 +19,10 @@ BugTrackerView.prototype.init = function () {
     });
 
     $('#filter').click(function () {
-        self.filters.Page = 0;
         $('#list-bug-tracks').empty();
         $('#count-bugs').empty();
-
-       self.filters.Trace = $('#Trace').val();
-       self.filters.Status = $('input[name=Status]:checked').map(function(){
-                                   return $(this).val();
-                               }).get();
+        self.filters.Page = 0;
+        self.fillFiltersField();
         self.loadData();
         self.showCountBugs();
     });
@@ -34,8 +30,17 @@ BugTrackerView.prototype.init = function () {
     $('table').on('click', '.trace-link', function () {
         $('#trace-content').html($(this).attr('data-value'));
     });
-};
 
+    $('#toPdf').submit(function () {
+        $('#pdf_idApplication').val(self.filters.idApplication);
+        $('#pdf_track').val($('#Trace').val());
+    });
+
+    $('#toTxt').submit(function () {
+        $('#txt_idApplication').val(self.filters.idApplication);
+        $('#txt_track').val($('#Trace').val());
+    });
+};
 
 BugTrackerView.prototype.loadData = function () {
     self = (this);
@@ -52,6 +57,13 @@ BugTrackerView.prototype.showCountBugs = function () {
         }
     });
 };
+
+BugTrackerView.prototype.fillFiltersField = function () {
+    this.filters.Trace = $('#Trace').val();
+    this.filters.Status = $('input[name=Status]:checked').map(function () {
+        return $(this).val();
+    }).get();
+}
 
 BugTrackerView.prototype.renderGraphics = function () {
     this.bModel.getGraphics(idApplication).done(function (data) {

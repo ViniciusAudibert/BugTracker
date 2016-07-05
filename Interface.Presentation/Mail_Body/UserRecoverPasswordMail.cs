@@ -30,7 +30,7 @@ namespace Interface.Presentation.Mail_Body
                 Body = "A request of a new password was made in BugTracker website, click on the button bellow to change your password"
             };
 
-            string body = EmailService.EmailRazorViewToString(model);
+            string body = RazorViewToString.EmailToString(model);
 
             mail.Send(mailTo, "Forgot password of BugTracker account", body, true);
 

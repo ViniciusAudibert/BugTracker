@@ -14,7 +14,7 @@ namespace Interface.Presentation.Controllers
     public class LoginGitHubController : Controller
     {
         const string clientId = "d6fe6834f30081cf609d";
-        private const string clientSecret = "602dee9f9aae53d622d418fbf60a7045e6851330";
+        private const string clientSecret = "d829abc7d3a9435cdae06599d698106f9066420d";
 
         IUserService userService = UserServiceInjection.Create();
 

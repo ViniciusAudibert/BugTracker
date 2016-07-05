@@ -1021,7 +1021,7 @@ ul.faq {
         width: auto;
     }
 
-    .modal#loginForm{
+    .modal#loginForm {
         width: auto;
     }
 
@@ -1030,7 +1030,24 @@ ul.faq {
         padding: 16px 65px;
     }
 
-    #input-password{
+    #input-password {
         width: 96%;
+    }
+}
+
+@media (max-width: 746px) {
+    .navbar-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 528px) {
+    .navigation-bar {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 }

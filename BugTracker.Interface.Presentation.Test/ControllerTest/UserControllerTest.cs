@@ -5,11 +5,6 @@ using Interface.Presentation.Extensions;
 using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace BugTracker.Interface.Presentation.Test.UnitTests
@@ -43,7 +38,7 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
 
             UserSessionService.CreateSession(loggedUser);
             var viewResult = UserController.Index() as ViewResult;
-            var expectedModel = ApplicationService.FindAppAndBugsByAppId(1).toApplicationAndBugsViewModel();
+            var expectedModel = ApplicationService.FindAppAndBugsByAppId(1).ToApplicationAndBugsViewModel();
 
             Assert.AreEqual(viewResult.ViewData.Model.ToString(), expectedModel.ToString());
         }
@@ -56,11 +51,10 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
             UserSessionService.CreateSession(loggedUser);
             var viewResult = UserController.Index() as ViewResult;
 
-            var expectedModel = ApplicationService.FindAppAndBugsByAppId(999).toApplicationAndBugsViewModel();
+            var expectedModel = ApplicationService.FindAppAndBugsByAppId(999).ToApplicationAndBugsViewModel();
 
             Assert.AreEqual(viewResult.ViewData.Model.ToString(), expectedModel.ToString());
         }
-
         
     }
 }

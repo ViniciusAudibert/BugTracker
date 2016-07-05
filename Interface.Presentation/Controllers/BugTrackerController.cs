@@ -6,14 +6,23 @@ using Interface.Presentation.Filters;
 using Interface.Presentation.Mail_Body;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
+using iTextSharp.text.pdf;
+using iTextSharp.xmp;
+using System.IO;
+using System.Web.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Domain = BugTracker.Domain;
-
+using System.Web.UI.HtmlControls;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf.parser;
 
 namespace Interface.Presentation.Controllers
 {
@@ -27,7 +36,7 @@ namespace Interface.Presentation.Controllers
             bugTrackerService = BugTrackerServiceInjection.Create();
             applicationService = ApplicationServiceInjection.Create();
         }
-        
+
         public BugTrackerController(IBugTrackerService bugTrackerService, IApplicationService applicationService)
         {
             this.bugTrackerService = bugTrackerService;
@@ -75,7 +84,7 @@ namespace Interface.Presentation.Controllers
 
                 if (sendEmail)
                 {
-                    TagMasterMail.SendTo(application.User.Email,application.Title);
+                    TagMasterMail.SendTo(application.User.Email, application.Title);
                 }
 
                 returnJson = Json(new { msg = "Success!" });
@@ -114,6 +123,36 @@ namespace Interface.Presentation.Controllers
             return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
         }
 
+        [HttpPost]
+        public FileResult ExportBugsForPdf(BugTrackerFilter filter)
+        {
+            var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+
+            Byte[] bytes = ExportFileService.TableHtmlToPdf(bugTrackers).ToArray();
+
+            return File(
+                bytes,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.pdf"
+            );
+        }
+
+        [HttpPost]
+        public FileResult ExportBugsForTxt(BugTrackerFilter filter)
+        {
+            var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+
+            Stream streamFile = ExportFileService.TableHtmlToTxt(bugTrackers);
+
+
+
+            return File(
+                streamFile,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.txt"
+            );
+        }
+
         private JsonResult formatReturn(IList<dynamic> data)
         {
             return Json(
@@ -124,6 +163,27 @@ namespace Interface.Presentation.Controllers
                 },
                 JsonRequestBehavior.AllowGet
             );
+        }
+
+        public static string ExtractTextFromPdf(string path)
+        {
+            ITextExtractionStrategy its = new iTextSharp.text.pdf.parser.LocationTextExtractionStrategy();
+
+            using (PdfReader reader = new PdfReader(path))
+            {
+                StringBuilder text = new StringBuilder();
+
+                for (int i = 1; i <= reader.NumberOfPages; i++)
+                {
+                    string thePage = PdfTextExtractor.GetTextFromPage(reader, i, its);
+                    string[] theLines = thePage.Split('\n');
+                    foreach (var theLine in theLines)
+                    {
+                        text.AppendLine(theLine);
+                    }
+                }
+                return text.ToString();
+            }
         }
     }
 }

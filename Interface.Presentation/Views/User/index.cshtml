@@ -13,13 +13,11 @@
             <div class="row filter-app">
                 <form action="~/User/Search/" method="post" class="form-horizontal" role="form">
                     <div class="form-inline">
-                        <div class="col-md-4">
-                            <input type="text" class="form-control align-input-text" value="@ViewBag.FilterName" name="name" placeholder="App name...">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control align-input-text" id="appNameForm" value="@ViewBag.FilterName" name="name" placeholder="App name...">
                         </div>
-                        <div class="col-md-4">
-                            <input href="~/User/Search/" class="btn btn-success" type="submit" value="Search" />
-                        </div>
-                        <div class="col-md-4 text-right">
+                        <div class="col-md-8">
+                            <input href="~/User/Search/" class="btn btn-success" id="searchForm" type="submit" value="Search" />
                             <a href="~/Application/RegisterApp/" class="btn btn-success">New App</a>
                         </div>
                     </div>
@@ -69,7 +67,7 @@
             </table>
         </div>
     </div>
-    <div class="panel panel-success col-md-4 box">
+    <div class="panel panel-success col-md-4 box panel-informations">
         <div class="panel-heading">
             <h4>Today</h4>
         </div>

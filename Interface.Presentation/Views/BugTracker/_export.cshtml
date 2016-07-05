@@ -1,0 +1,25 @@
+﻿@model List<Interface.Presentation.Models.BugTracker.BugTrackerViewModel>
+
+<table>
+    <thead>
+        <tr>
+            <th>Trace</th>
+            <th>Bugs</th>
+            <th>Status</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>        
+        @foreach (var bug in Model)
+        {
+            <tr>
+                <td>@bug.Trace</td>
+                <td>@bug.Tags</td>
+                <td>@bug.Status</td>
+                <td>@bug.OccuredDate.ToString("dd/MM/yyyy")</td>    
+            </tr>
+        }
+    </tbody>
+</table>
+
+

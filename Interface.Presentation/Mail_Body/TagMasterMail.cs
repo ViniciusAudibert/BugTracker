@@ -21,7 +21,7 @@ namespace Interface.Presentation.Mail_Body
                 Body = "A critical bug war reported in your application \"" + title + "\" click the button bellow and check it"
             };
 
-            string body = EmailService.EmailRazorViewToString(model);
+            string body = RazorViewToString.EmailToString(model);
 
             mail.Send(mailTo, "BugTracker reported a critical bug in one of your applications", body, true);
         }

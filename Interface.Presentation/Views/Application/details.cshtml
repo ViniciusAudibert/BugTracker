@@ -20,7 +20,7 @@
         <div class="panel-body">
             <div id="count-bugs" class="text-center"></div>
             <div id="filters">
-                <div class="col-md-3"></div>
+                <div class="col-md-1"></div>
                 <div class="col-md-3">
                     <input type="text" class="form-control" value="@ViewBag.FilterName" name="Trace" id="Trace" placeholder="Trace...">
                 </div>
@@ -36,8 +36,32 @@
                         }
                     }
                 </div>
-                <div class="col-md-3">
-                    <button id="filter" class="btn btn-success">Filter</button>
+                <div class="col-md-5 actions-table">
+                    <button id="filter" class="btn btn-success btn-hover-green">Filter</button>
+                    <button class="btn btn-success dropdown-toggle btn-hover-green" type="button" id="dropdown-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Export
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-export" aria-labelledby="dropdown-export">
+                        <li>
+                            @using (Html.BeginForm("ExportBugsForPdf", "BugTracker", FormMethod.Post, new { @class = "export-form", id = "toPdf" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="IdApplication" id="pdf_idApplication" />
+                                    <input type="hidden" name="Track" id="pdf_track" />
+                                    <button class="btn btn-success" type="submit"> Pdf </button>
+                            }
+                        </li>
+                        <li>
+                            @using (Html.BeginForm("ExportBugsForTxt", "BugTracker", FormMethod.Post, new { @class = "export-form", id = "toTxt" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="IdApplication" id="txt_idApplication" />
+                                    <input type="hidden" name="Track" id="txt_track" />
+                                    <button class="btn btn-success" type="submit"> Txt </button>
+                            }
+                        </li>
+                    </ul>
                 </div>
             </div>
             <table class="table">
@@ -76,7 +100,6 @@
 </div>
 
 @section scripts{
-
     @Scripts.Render("~/bundles/application")
 
     <script>

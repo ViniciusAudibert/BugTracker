@@ -21,53 +21,15 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public ICollection<Domain.Entity.BugTracker> FindByIDApplication (int idApplication)
+        private IQueryable<Domain.Entity.BugTracker> GetDefault(DataContext context, int idApplication)
         {
-            using (var db = new DataContext())
-            {
-                return db.BugTrucker
+            return context.BugTrucker
                     .AsNoTracking()
                     .Include("Tags")
-                    .Where(_ => _.IDApplication == idApplication)
-                    .ToList();
-            }
+                    .Where(_ => _.IDApplication == idApplication);
         }
 
-        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(BugTrackerFilter filter)
-        {
-            using (var db = new DataContext())
-            {
-                var query = db.BugTrucker
-                    .AsNoTracking()
-                    .Include("Tags")
-                    .OrderByDescending(_ => _.IDBugTracker)
-                    .Skip(filter.Limit * (filter.Page - 1))
-                    .Take(filter.Limit)
-                    .Where(_ => _.IDApplication == filter.idApplication);
-
-                return addFilter(query, filter).ToList();
-            }
-        }
-
-        public IList<dynamic> GetCountBugsByApp(BugTrackerFilter filter)
-        {
-            using (var db = new DataContext())
-            {
-                var query = db.BugTrucker
-                    .AsNoTracking()
-                    .Where(_ => _.IDApplication == filter.idApplication);
-
-                return addFilter(query, filter)
-                        .GroupBy(x => x.Status)
-                        .Select(s => new
-                        {
-                            Status = s.Key,
-                            Count = s.Count()
-                        }).ToArray();
-            }
-        }
-
-        private IEnumerable<Domain.Entity.BugTracker> addFilter(IEnumerable<Domain.Entity.BugTracker> query, BugTrackerFilter filter)
+        private IEnumerable<Domain.Entity.BugTracker> AddFilter(IEnumerable<Domain.Entity.BugTracker> query, BugTrackerFilter filter)
         {
             if (!string.IsNullOrEmpty(filter.Trace))
             {
@@ -80,6 +42,56 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
 
             return query;
+        }
+
+        public ICollection<Domain.Entity.BugTracker> FindByIDApplication (int idApplication)
+        {
+            using (var db = new DataContext())
+            {
+                return this.GetDefault(db, idApplication).ToList();
+            }
+        }
+
+        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(BugTrackerFilter filter)
+        {
+            using (var db = new DataContext())
+            {
+                var query = this.GetDefault(db, filter.idApplication)
+                        .OrderByDescending(_ => _.IDBugTracker)
+                        .Skip(filter.Limit * (filter.Page - 1))
+                        .Take(filter.Limit);
+
+                return AddFilter(query, filter).ToList();
+            }
+        }
+
+        public ICollection<Domain.Entity.BugTracker> FindByApplicationFilter(BugTrackerFilter filter)
+        {
+            using (var db = new DataContext())
+            {
+                var query = this.GetDefault(db, filter.idApplication)
+                                .OrderByDescending(_ => _.IDBugTracker);
+
+                return AddFilter(query, filter).ToList();
+            }
+        }
+
+        public IList<dynamic> GetCountBugsByApp(BugTrackerFilter filter)
+        {
+            using (var db = new DataContext())
+            {
+                var query = db.BugTrucker
+                    .AsNoTracking()
+                    .Where(_ => _.IDApplication == filter.idApplication);
+
+                return AddFilter(query, filter)
+                        .GroupBy(x => x.Status)
+                        .Select(s => new
+                        {
+                            Status = s.Key,
+                            Count = s.Count()
+                        }).ToArray();
+            }
         }
 
         public IList<dynamic> GetGraphicModelByIdApplication(int id)

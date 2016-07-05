@@ -21,7 +21,7 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public static void CreateMockContext()
         {
-            HttpRequest = new HttpRequest("", "http://stackoverflow/", "");
+            HttpRequest = new HttpRequest("", "http://bugtracker/", "");
             StringWriter = new StringWriter();
             HttpResponse = new HttpResponse(StringWriter);
             HttpContext = new HttpContext(HttpRequest, HttpResponse);

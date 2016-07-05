@@ -22,9 +22,14 @@
 }
 
 .box {
-    margin-left: 30px;
+    margin-left: 10px;
+    margin-right: 7px;
     height: 77%;
     overflow-y: auto;
+}
+
+.panel-informations {
+    width: 37%;
 }
 
 .graphics {
@@ -152,8 +157,46 @@ body {
     background-color: white !important;
 }
 
-.toggle-table-cell{
+.toggle-table-cell {
     display: table-cell !important;
+    position: absolute;
+    z-index: 1;
+    left: -75px;
+}
+
+.full-width {
+    width: 98%;
+}
+
+#appNameForm {
+    margin-bottom: 20px;
+}
+
+#searchForm {
+    margin-right: 18px;
+}
+
+.btn-hover-green:hover {
+    background-color: #79a736 !important;
+}
+
+.export-form > button {
+    width: 100%;
+    margin: 3px 0px;
+}
+
+    .export-form > button:hover {
+        background-color: #79a736;
+    }
+
+.actions-table {
+    margin-top: 25px;
+}
+
+.dropdown-export {
+    position: absolute;
+    top: 24px;
+    left: 152px;
 }
 
 @media (max-width: 1110px) {
@@ -165,5 +208,15 @@ body {
 @media (max-width: 767px) {
     #navigation {
         display: none;
+    }
+
+    .panel-informations {
+        width: 97.5% !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .panel-informations {
+        width: 98%;
     }
 }
