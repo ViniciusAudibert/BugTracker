@@ -1,29 +1,43 @@
 ﻿#documentation-source {
     font-size: 16px;
+    padding: 35px 45px;
 }
-    
+
 #documentation {
     margin-top: 100px;
     margin-left: 220px;
     margin-right: 220px;
+    border-radius: 11px;
+    box-shadow: 1px 1px 21px -9px #0e1a35;
 }
 
-    #documentation .panel-heading {
-        font-size: 30px;
+.panel-heading {
+    padding: 35px 0;
+}
+
+#documentation .panel-heading {
+    font-size: 30px;
+}
+
+    #documentation .panel-heading span {
+        padding-left: 45px;
+        cursor: pointer;
     }
 
-        #documentation .panel-heading span {
-            padding-left: 30px;
-            cursor: pointer;
-        }
-    .codebox {
-        background-color:#EEEEFF;
-        overflow:auto;    
-        padding:10px;
+    #documentation .panel-heading > span:hover {
+        color: #29aa47;
     }
+
+.codebox {
+    background-color: #EEEEFF;
+    overflow: auto;
+    padding: 10px;
+}
+
     .codebox code {
-        font-size:0.9em;
+        font-size: 0.9em;
     }
+
 .padding {
     padding-left: 20px;
 }

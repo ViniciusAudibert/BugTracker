@@ -66,6 +66,7 @@
     <Compile Include="UnitTests\ActivationControllerTest.cs" />
     <Compile Include="UnitTests\ApplicationControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\BugTrackerControllerTest.cs" />
     <Compile Include="UnitTests\HomeControllerTest.cs" />
     <Compile Include="UnitTests\LoginControllerTest.cs" />
     <Compile Include="UnitTests\UserControllerTest.cs" />

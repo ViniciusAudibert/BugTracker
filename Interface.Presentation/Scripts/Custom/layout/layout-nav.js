@@ -7,6 +7,11 @@ $(function () {
         readURL(this);
     });
 
+    $('.navbar-toggle').click(function () {
+        $('#navigation').toggleClass('toggle-table-cell');
+    })
+
+
 })
 
 function readURL(input) {

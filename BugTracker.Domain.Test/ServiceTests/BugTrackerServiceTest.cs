@@ -23,7 +23,7 @@ namespace BugTracker.Domain.Test.ServiceTests
         {
             BugTrackerRepositoryMock = new BugTrackerRepositoryMock();
             EmailService = MailServiceInjection.Create();
-            BugTrackerService = new BugTrackerService(BugTrackerRepositoryMock, EmailService);
+            BugTrackerService = new BugTrackerService(BugTrackerRepositoryMock);
         }
 
         [TestMethod]

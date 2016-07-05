@@ -27,6 +27,12 @@ namespace Interface.Presentation.Controllers
             bugTrackerService = BugTrackerServiceInjection.Create();
             applicationService = ApplicationServiceInjection.Create();
         }
+        
+        public BugTrackerController(IBugTrackerService bugTrackerService, IApplicationService applicationService)
+        {
+            this.bugTrackerService = bugTrackerService;
+            this.applicationService = applicationService;
+        }
 
         [HttpPost]
         [AllowOriginAttributeConfig]

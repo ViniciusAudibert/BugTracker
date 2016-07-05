@@ -34,8 +34,6 @@ BugTrackerView.prototype.init = function () {
     $('table').on('click', '.trace-link', function () {
         $('#trace-content').html($(this).attr('data-value'));
     });
-
-    $('[data-toggle="tooltip"]').tooltip();
 };
 
 

@@ -17,15 +17,15 @@
         <hr />
         <div class="panel-body" id="documentation-source">
             <div id="Install" style="display:none">
-                A instalção é um processo extremamente simples.
-                Após realizar o download da biblioteca (acessível após realizar o cadastro).
-                Você só precisa referencia-la em sua página.
-                <b>*lembre-se, a referência dovjquery é necessário para o funcionamento da biblioteca.</b>
+                <h3><b>Downloading the library</b></h3><br /> 
+                It is really simple to use the library. Just follow the steps bellow and check how to use it.<br />
+                Download the library in your panel on the download tab (available after you have your account).
+                You only need to include the library in your application.<br /><br />
+                <b>*Important: the library only works if your application uses jquery.</b>
             </div>
             <div id="Using">
-                Após a instalação, você poderá realizar o trackeamento dos seus bugs de forma muito simples.
+                After you installed it will be possible to track all your bugs. Check an <b>example of using</b>
                 <br /><br />
-                <b>Exemplo:</b>
 
                 <div class="codebox">
                     <code>
@@ -40,32 +40,34 @@
                 </div>
 
                 <br /><br />
-                Parâmetros:
+                <h2><b>Params:</b></h2>
 
-                <br /><br />
-                *Object:
-                Status: Status do erro, podendo ser: ERROR, INFO or WARNING
-                Tags (Array de strings):  array de strings, informando as tags para posteriormente realizar o restramento do erro.
-                Trace (Objeto): poderá ser informado qualquer valor, sendo eles: string, int, objeto complexo...
+                <br />
+                <h3><b>*Object:</b></h3><br />
+                <b>Status:</b> Error Status. { ERROR, INFO or WARNING }<br />
+                <b>Tags:</b> String array informing the tags to use as filter searching. You also can use a tag master here to send email for yourself.<br />
+                <b>Trace:</b> Any object.<br />
+                <br />
+                <br />
+                <h3><b>*Function callback:</b></h3>
+                <br />
+                function to be performed after the error was tracked.<br /><br />
+                <b>- First param:</b> A string reporting the error description or undefined in case of success.<br />
+                <b>- Second param:</b>  A string reporting success of undefined in case of error.<br /><br />
 
-                <br /><br />
-                *Function: callback, função a ser executada após o trackamento do erro.
-                - Primeiro parâmetro (string): Descrição do motivo do erro, ou vazio em caso de sucesso.
-                - Segundo parâmetro (string):  Informativo de sucesso, ou vazio em caso de erro.
-
-                OBS: Os dois parâmetros citados acima (object and callback function) são obrigatórios.
+                OBS: Both object and function callback are required.
             </div>
             <div id="Errors" style="display:none">
-                Ao utilizar a biblioteca, alguns erros podem ocorrer, tais como:
+                <h3><b>List of errors using our library</b></h3> 
                 <br /><br />
 
-                <b>"Domain invalid or Libray broke. Verify your domain in painel and download again library." </b>
-                Este erro ocorrerá caso o host da request for diferente do cadastrado no painel, ou no caso
-                de corrompimento da biblioteca. Nesta situação, verificar se o campo "url da aplicação" foi cadastrado corretamente, e baixar novamente a biblioteca.
+                <b>"Domain invalid or Libray broke. Verify your domain in painel and download again library." </b><br />
+                It happens when the host request is different of the one stored in the applications panel or
+                if the library is corrupted. In this situation check if the "Url" field is correct and then download again the library
 
                 <br /><br />
-                <b>"Tags exceeded limit 20 characters":</b>
-                Certamente você está informando uma tag com mais de 20 caracteres.
+                <b>"Tags exceeded limit 20 characters":</b><br />
+                You sent tags exceeding the limit of 20 characters.
             </div>
         </div>
     </div>

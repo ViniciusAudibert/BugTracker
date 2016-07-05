@@ -8,7 +8,7 @@ namespace Interface.Presentation.Services
     {
         public static BugTrackerService Create()
         {
-            return new BugTrackerService(new BugTrackerRepository(), new MailService());
+            return new BugTrackerService(new BugTrackerRepository());
         }
     }
 }

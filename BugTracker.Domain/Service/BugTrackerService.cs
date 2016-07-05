@@ -8,12 +8,12 @@ namespace BugTracker.Domain.Service
     public class BugTrackerService : IBugTrackerService
     {
         private IBugTrackerRepository bugTrackerRepository;
-        private IMailService emailService;
+        
 
-        public BugTrackerService(IBugTrackerRepository bugTrackerRepository, IMailService emailService)
+        public BugTrackerService(IBugTrackerRepository bugTrackerRepository)
         {
             this.bugTrackerRepository = bugTrackerRepository;
-            this.emailService = emailService;
+            
         }
 
         public bool Add(Entity.BugTracker bugTracker)

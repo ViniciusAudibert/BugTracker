@@ -85,8 +85,8 @@
     padding: 20px;
 }
 
-.modal-content{
-    word-wrap: break-word
+.modal-content {
+    word-wrap: break-word;
 }
 
 html, body {
@@ -140,8 +140,30 @@ body {
     top: 0;
 }
 
+.navbar-toggle {
+    border: 1px solid #949494 !important;
+}
+
+.navbar-header {
+    background-color: #0e1a35;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white !important;
+}
+
+.toggle-table-cell{
+    display: table-cell !important;
+}
+
 @media (max-width: 1110px) {
     .navi a {
         font-size: 14px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #navigation {
+        display: none;
     }
 }

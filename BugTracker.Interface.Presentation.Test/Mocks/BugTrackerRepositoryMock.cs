@@ -35,7 +35,9 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(BugTrackerFilter filter)
         {
-            throw new NotImplementedException();
+            return BugsList.Where(x => x.IDApplication == filter.idApplication || filter.Status.Contains(x.Status)
+                                    || x.Description == filter.Trace).Skip(filter.Limit * (filter.Page - 1))
+                                                                     .Take(filter.Limit).ToList();
         }
 
         public ICollection<Domain.Entity.BugTracker> FindByIDApplication(int id)
