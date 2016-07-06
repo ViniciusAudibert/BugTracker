@@ -7,81 +7,160 @@
     @Styles.Render("~/Content/documentation")
 }
 
-<div class="row">
-    <div class="panel panel-success col-md-6 box" id="documentation">
-        <div class="panel-heading text-center">
-            <span data-value="Install">Install</span>
-            <span data-value="Using">Using</span>
-            <span data-value="Errors">Errors</span>
-        </div>
-        <hr />
-        <div class="panel-body" id="documentation-source">
-            <div id="Install" style="display:none">
-                <h3><b>Downloading the library</b></h3><br /> 
-                It is really simple to use the library. Just follow the steps bellow and check how to use it.<br />
-                Download the library in your panel on the download tab (available after you have your account).
-                You only need to include the library in your application.<br /><br />
-                <b>*Important: the library only works if your application uses jquery.</b>
-            </div>
-            <div id="Using">
-                After you installed it will be possible to track all your bugs. Check an <b>example of using</b>
-                <br /><br />
-
-                <div class="codebox">
-                    <code>
-                        CWITracker.track({ <br />
-                        <span class="padding">Trace: e //exception object , </span><br />
-                        <span class="padding">Status: CWITracker.ERROR,</span> <br />
-                        <span class="padding">Tags: ["critical"] </span><br />
-                        <span class="padding">}, function callback(error, success) {</span> <br />
-                        <span class="padding">console.log(error || success) </span><br />
-                        });
-                    </code>
+<div class="container main">
+    <div class="row-fluid">
+        <aside class="span4 doc-top-margin" id="doc-sidebar">
+            <div class="widget">
+                <h2>Welcome</h2>
+                <div class="widget-blog-items">
+                    <div class="media">
+                        <div>
+                            <span class="span1 list-item">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="span11 list-link">
+                                <a href="#first-step" class="link-item">First Step</a>
+                            </span>
+                        </div>
+                        <div>
+                            <span class="span1 list-item">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="span11 list-link">
+                                <a href="#dowloading" class="link-item">Downloading</a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-
-                <br /><br />
-                <h2><b>Params:</b></h2>
-
-                <br />
-                <h3><b>*Object:</b></h3><br />
-                <b>Status:</b> Error Status. { ERROR, INFO or WARNING }<br />
-                <b>Tags:</b> String array informing the tags to use as filter searching. You also can use a tag master here to send email for yourself.<br />
-                <b>Trace:</b> Any object.<br />
-                <br />
-                <br />
-                <h3><b>*Function callback:</b></h3>
-                <br />
-                function to be performed after the error was tracked.<br /><br />
-                <b>- First param:</b> A string reporting the error description or undefined in case of success.<br />
-                <b>- Second param:</b>  A string reporting success of undefined in case of error.<br /><br />
-
-                OBS: Both object and function callback are required.
             </div>
-            <div id="Errors" style="display:none">
-                <h3><b>List of errors using our library</b></h3> 
-                <br /><br />
 
-                <b>"Domain invalid or Libray broke. Verify your domain in painel and download again library." </b><br />
-                It happens when the host request is different of the one stored in the applications panel or
-                if the library is corrupted. In this situation check if the "Url" field is correct and then download again the library
+            <div class="widget">
+                <h2>Installation</h2>
+                <div class="widget-blog-items">
+                    <div class="media">
+                        <div>
+                            <span class="span1 list-item">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="span11 list-link">
+                                <a href="#requirements" class="link-item">Requirements</a>
+                            </span>
+                        </div>
+                        <div>
+                            <span class="span1 list-item">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="span11 list-link">
+                                <a href="#install" class="link-item">How to install</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <br /><br />
-                <b>"Tags exceeded limit 20 characters":</b><br />
-                You sent tags exceeding the limit of 20 characters.
+            <div class="widget">
+                <h2>How To Use</h2>
+                <div class="widget-blog-items">
+                    <div class="media">
+                        <div>
+                            <span class="span1 list-item">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="span11 list-link">
+                                <a href="#tracking" class="link-item">Tracking bugs</a>
+                            </span>
+                        </div>
+                        <div>
+                            <span class="span1 list-item">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="span11 list-link">
+                                <a href="#errors" class="link-item">Errors</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div class="span8">
+            <div>
+                <h1 class="doc-heading doc-top-margin">Welcome</h1><hr>
+                <div class="doc-article" id="first-step">
+                    <h2>First Step</h2>
+                    <p>The first step to start using our service is making an account. You will be able then to access the panel and from there you will see all reports of your applications.</p>
+                </div>
+                <div class="doc-article" id="downloading">
+                    <h2>Downloading</h2>
+                    <p>The download of the library will be avalible in your panel on the download tab and you only need to include it in your application.</p>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="doc-heading">Installation</h1><hr>
+                <div class="doc-article" id="requirements">
+                    <h2>Requirements</h2>
+                    <p>To use the library it is extremely essecial that you have jquery in your application, otherwise BugTracker's library will not work. It is possible to download jquery <a href="http://jquery.com/download" target="_blank">here</a></p>
+                </div>
+                <div class="doc-article" id="install">
+                    <h2>How to install</h2>
+                    <p>First you download the library that will be avalible in your panel on the download tab. You need to include it in your application and remember, it is very important to use the library that you downloaded in your account because after you have created it you will have an identifier and when you download it comes together with the library.</p>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="doc-heading">How To Use</h1><hr>
+                <div class="doc-article" id="tracking">
+                    <h2>Tracking bugs</h2>
+                    <div>
+                        <pre class="code">
+Exemple of using
+
+    CWITracker.track({
+
+        Trace: e //exception object ,
+        Status: CWITracker.ERROR,
+        Tags: ["critical"]
+
+    }, function callback(error, success) {
+        console.log(error || success)
+    });
+                        </pre>
+                        <h3><b>Params:</b></h3><br>
+
+                        <h4><b>*Object:</b></h4><br>
+
+                        <p>
+                            Status: Error Status. { ERROR, INFO or WARNING }<br>
+                            Tags: String array informing the tags to use as filter searching. You also can use a tag master here to send email for yourself.<br>
+                            Trace: Any object.
+                        </p><br><br>
+
+
+                        <h4><b>*Function callback:</b></h4><br>
+
+                        <p>function to be performed after the error was tracked.</p><br>
+
+                        <p>
+                            - First param: A string reporting the error description or undefined in case of success.<br>
+                            - Second param: A string reporting success of undefined in case of error.<br><br>
+
+                            <b>OBS: Both object and function callback are required.</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="doc-article" id="errors">
+                    <h3><b>Errors</b></h3><br>
+                    <h4><b>Using the library you can have some errors</b></h4><br><br>
+
+
+                    <p><b>"Domain invalid or Libray broke. Verify your domain in painel and download again library."</b><br>
+                    It happens when the host request is different of the one stored in the applications panel or if the library is corrupted. In this situation check if the "Url" field is correct and then download again the library
+                    <br><br>
+                    <b>"Tags exceeded limit 20 characters":</b><br>
+                    You sent tags exceeding the limit of 20 characters.</p>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
-
-@section scripts{
-
-    <script>
-        $(function () {
-            $('#documentation .panel-heading span').click(function () {
-                $('.panel-body > div').hide();
-                var id = $(this).attr('data-value');
-                $('#' + id).fadeIn();
-            });
-        });
-    </script>
-}

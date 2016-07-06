@@ -16,7 +16,7 @@ namespace Interface.Presentation.Mail_Body
 
         public static void SendEmail(SendEmailModel emailModel)
         {
-            string body = String.Format("O usuario {0} {1}, com email {2} enviou a seguinte questão\n\t{3}",
+            string body = String.Format("The user {0} {1}, with email \"{2}\" sent a message\n\t{3}",
                 emailModel.FirstName,emailModel.LastName,emailModel.Email,emailModel.Message);
 
             mail.Send(BUGTRCKER_EMAIL, "User message", body, false);

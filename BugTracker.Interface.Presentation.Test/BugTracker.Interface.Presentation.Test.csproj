@@ -42,7 +42,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -63,13 +65,13 @@
     <Compile Include="Mocks\HttpContextMock.cs" />
     <Compile Include="Mocks\UserRecoveryRepositoryMock.cs" />
     <Compile Include="Mocks\UserRepositoryMock.cs" />
-    <Compile Include="UnitTests\ActivationControllerTest.cs" />
-    <Compile Include="UnitTests\ApplicationControllerTest.cs" />
+    <Compile Include="ControllerTest\ActivationControllerTest.cs" />
+    <Compile Include="ControllerTest\ApplicationControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTests\BugTrackerControllerTest.cs" />
-    <Compile Include="UnitTests\HomeControllerTest.cs" />
-    <Compile Include="UnitTests\LoginControllerTest.cs" />
-    <Compile Include="UnitTests\UserControllerTest.cs" />
+    <Compile Include="ControllerTest\BugTrackerControllerTest.cs" />
+    <Compile Include="ControllerTest\HomeControllerTest.cs" />
+    <Compile Include="ControllerTest\LoginControllerTest.cs" />
+    <Compile Include="ControllerTest\UserControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">
@@ -84,7 +86,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Views\Shared\_LayoutEmail.cshtml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -40,7 +40,7 @@ namespace Interface.Presentation.Controllers
         {
             var apps = 
                 applicationService.FindAppAndBugsByAppId(UserSessionService.LoggedUser.IDUser)
-                .toApplicationAndBugsViewModel();
+                .ToApplicationAndBugsViewModel();
 
             return View(apps);
         }
@@ -50,7 +50,7 @@ namespace Interface.Presentation.Controllers
         public ActionResult Search(String name)
         {
             var model = applicationService.FindAppAndBugsByName(name, UserSessionService.LoggedUser.IDUser)
-                .toApplicationAndBugsViewModel(); ;
+                .ToApplicationAndBugsViewModel(); ;
 
             ViewBag.FilterName = name;
 

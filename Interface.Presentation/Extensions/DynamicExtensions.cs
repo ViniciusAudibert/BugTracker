@@ -8,7 +8,7 @@ namespace Interface.Presentation.Extensions
 {
     public static class DynamicExtensions
     {
-        public static List<ApplicationAndBugsViewModel> toApplicationAndBugsViewModel(this IEnumerable<dynamic> apps)
+        public static List<ApplicationAndBugsViewModel> ToApplicationAndBugsViewModel(this IEnumerable<dynamic> apps)
         {
             var appViewModel = new List<ApplicationAndBugsViewModel>();
 

@@ -55,5 +55,10 @@ namespace BugTracker.Domain.Service
         {
             return bugTrackerRepository.GetCountBugsByApp(filter);
         }
+
+        public ICollection<Entity.BugTracker> FindByApplicationFilter(Entity.BugTrackerFilter filter)
+        {
+            return bugTrackerRepository.FindByApplicationFilter(filter);
+        }
     }
 }

@@ -19,14 +19,10 @@ BugTrackerView.prototype.init = function () {
     });
 
     $('#filter').click(function () {
-        self.filters.Page = 0;
         $('#list-bug-tracks').empty();
         $('#count-bugs').empty();
-
-       self.filters.Trace = $('#Trace').val();
-       self.filters.Status = $('input[name=Status]:checked').map(function(){
-                                   return $(this).val();
-                               }).get();
+        self.filters.Page = 0;
+        self.fillFiltersField();
         self.loadData();
         self.showCountBugs();
     });
@@ -34,8 +30,15 @@ BugTrackerView.prototype.init = function () {
     $('table').on('click', '.trace-link', function () {
         $('#trace-content').html($(this).attr('data-value'));
     });
-};
 
+    $('#convert-to-pdf, #convert-to-txt').click(function () {
+        $('#export_idApplication').val(self.filters.idApplication);
+        $('#export_track').val($('#Trace').val());
+
+        $('#filter-form').attr('action', $(this).attr('data-link'));
+        $('#filter-form').submit();
+    });
+};
 
 BugTrackerView.prototype.loadData = function () {
     self = (this);
@@ -48,10 +51,20 @@ BugTrackerView.prototype.loadData = function () {
 BugTrackerView.prototype.showCountBugs = function () {
     this.bModel.countBugs(self.filters).done(function (data) {
         for (var i in data.data) {
-            $('#count-bugs').append($('<span>').addClass("fa fa-exclamation-triangle " + data.status[data.data[i].Status - 1]).html(data.data[i].Count));
+            $('#count-bugs')
+                .append($('<span>')
+                .addClass("fa fa-exclamation-triangle " + data.status[data.data[i].Status - 1])
+                .html(data.data[i].Count));
         }
     });
 };
+
+BugTrackerView.prototype.fillFiltersField = function () {
+    this.filters.Trace = $('#Trace').val();
+    this.filters.Status = $('input[name=Status]:checked').map(function () {
+        return $(this).val();
+    }).get();
+}
 
 BugTrackerView.prototype.renderGraphics = function () {
     this.bModel.getGraphics(idApplication).done(function (data) {

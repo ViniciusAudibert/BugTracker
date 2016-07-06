@@ -48,5 +48,16 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
             
         }
 
+        [TestMethod]
+        public void ActiveAcountEmptyHash()
+        {
+            var invalidHash = "";
+            ActivationController.Code(invalidHash);
+
+            Assert.IsFalse(UserRepositoryMock.FindById(1).AccountConfirmed);
+            Assert.IsFalse(UserRepositoryMock.FindById(2).AccountConfirmed);
+
+        }
+
     }
 }

@@ -7,7 +7,6 @@ function BugTrackerModel() {
 }
 
 BugTrackerModel.prototype.getPagined = function (filter) {
-    console.log(filter);
     return $.ajax({
         url: this.urlGetPagined,
         type: "POST",

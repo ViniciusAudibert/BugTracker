@@ -1,4 +1,7 @@
 ﻿'use strict'
+
+var togglePositionCollapse = -10;
+
 $(function () {
 
     $('.link[data-target-id="' + document.title + '"]').addClass('active');
@@ -8,7 +11,9 @@ $(function () {
     });
 
     $('.navbar-toggle').click(function () {
-        $('#navigation').toggleClass('toggle-table-cell');
+        $('#navigation').toggleClass('toggle-table-cell').animate({ left: togglePositionCollapse }, 250, function () {
+            togglePositionCollapse = togglePositionCollapse == -75 ? -10 : -75;
+        });
     })
 
 

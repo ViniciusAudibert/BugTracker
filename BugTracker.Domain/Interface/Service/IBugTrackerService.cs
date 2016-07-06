@@ -12,6 +12,7 @@ namespace BugTracker.Domain.Interface.Service
     {
         ICollection<Domain.Entity.BugTracker> FindByIDApplication(int id);
         ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(BugTrackerFilter filter);
+        ICollection<Domain.Entity.BugTracker> FindByApplicationFilter(BugTrackerFilter filter);
         IList<dynamic> GetGraphicModelByIdApplication(int id);
         IList<dynamic> GetCountBugsByApp(BugTrackerFilter filter);
         bool Add(Domain.Entity.BugTracker bugTracker);

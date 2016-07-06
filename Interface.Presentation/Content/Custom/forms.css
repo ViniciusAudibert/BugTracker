@@ -75,3 +75,19 @@
     padding: 20px 0;
     padding-left: 50px;
 }
+
+
+.fa-github{
+    width: 10px;
+    font-size: 30px;
+    margin-right: 17px;
+    margin-top: -10px;
+    position: relative;
+    top: 5px;
+}
+
+.btn-git{
+    
+    background-color: black;
+    color:white;
+}

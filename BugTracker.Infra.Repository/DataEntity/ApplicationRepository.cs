@@ -12,7 +12,10 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.Application.Include("BugTrackers").Where(_ => _.IDUser == IDUser && _.Active == true).ToList();
+                return db.Application
+                    .Include("BugTrackers")
+                    .Where(_ => _.IDUser == IDUser && _.Active == true)
+                    .ToList();
             }
         }
 
@@ -64,7 +67,9 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.Application.AsNoTracking().FirstOrDefault(_ => _.IDApplication == id);
+                return db.Application
+                    .AsNoTracking()
+                    .FirstOrDefault(_ => _.IDApplication == id);
             }
         }
 
@@ -72,7 +77,10 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.Application.Include("BugTrackers").Where(_ => _.Title.Contains(name) && _.Active == true).ToList();
+                return db.Application
+                    .Include("BugTrackers")
+                    .Where(_ => _.Title.Contains(name) && _.Active == true)
+                    .ToList();
             }
         }
 
@@ -84,23 +92,40 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .AsNoTracking()
                     .Where(_ => _.IDUser == id && _.Active == true)
                     .Select(
-                        _ => new
-                        {
-                            AppName = _.Title,
-                            AppId = _.IDApplication,
-                            AppImage = _.Image,
-                            LastTrack = _.BugTrackers.OrderByDescending(x => x.IDBugTracker).FirstOrDefault(),
-                            TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR && b.OccurredDate >= DateTime.Today).Count(),
-                            TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()                            
-                        }
-                    ).ToList();
-                
+                            _ => new
+                            {
+                                AppName = _.Title,
+                                AppId = _.IDApplication,
+                                AppImage = _.Image,
+                                LastTrack = _.BugTrackers.OrderByDescending(x => x.IDBugTracker).FirstOrDefault(),
+                                TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR && b.OccurredDate >= DateTime.Today).Count(),
+                                TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()
+                            }
+                        ).ToList();
             }
         }
 
+        //TODO: agrupar em mesmo consulta, mas procurar solução para dar where no dynamic
         public IEnumerable<dynamic> FindAppAndBugsByName(String name, int id)
         {
-            return FindAppAndBugsByAppId(id).Where(b => b.AppName.Contains(name)).ToList();
+            using (var db = new DataContext())
+            {
+                return db.Application
+                    .AsNoTracking()
+                    .Where(_ => _.IDUser == id && _.Active == true)
+                    .Where(_ => _.Title.Contains(name))
+                    .Select(
+                            _ => new
+                            {
+                                AppName = _.Title,
+                                AppId = _.IDApplication,
+                                AppImage = _.Image,
+                                LastTrack = _.BugTrackers.OrderByDescending(x => x.IDBugTracker).FirstOrDefault(),
+                                TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR && b.OccurredDate >= DateTime.Today).Count(),
+                                TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()
+                            }
+                        ).ToList();
+            }
         }
     }
 }

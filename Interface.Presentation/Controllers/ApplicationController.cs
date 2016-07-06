@@ -82,6 +82,7 @@ namespace Interface.Presentation.Controllers
                                             model.Url, true, fileName,
                                             model.Tag, idUser, user);
                     applicationService.Edit(app);
+                    return RedirectToAction("index", "user");
                 }
                 else
                 {
@@ -97,25 +98,23 @@ namespace Interface.Presentation.Controllers
                                                     model.Url, true, fileName,
                                                     model.Tag, idUser, user);
                             applicationService.Add(app);
+                            return RedirectToAction("index", "user");
                         }
                         else
                         {
                             ModelState.AddModelError("INVALID_URL", "This  url already exist");
-                            return View("register-app", model);
                         }
                     }
                     else
                     {
                         ModelState.AddModelError("INVALID_APPLICATION_NUMBER", "The limit of applications you can have is 5");
-                        return View("register-app", model);
                     }
 
                 }
 
             }
 
-
-            return RedirectToAction("Index", "User");
+            return View("register-app", model);
         }
 
         [UserToken]

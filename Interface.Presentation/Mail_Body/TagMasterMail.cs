@@ -18,10 +18,10 @@ namespace Interface.Presentation.Mail_Body
             var model = new EmailModel()
             {
                 Link = "http://bugtracker-5.apphb.com/User",
-                Body = "A critical bug war reported in your application \"" + title + "\" click the button bellow and check it"
+                Body = "A critical bug was reported in your application \"" + title + "\" click the button bellow and check it"
             };
 
-            string body = EmailService.EmailRazorViewToString(model);
+            string body = RazorViewToString.EmailToString(model);
 
             mail.Send(mailTo, "BugTracker reported a critical bug in one of your applications", body, true);
         }
