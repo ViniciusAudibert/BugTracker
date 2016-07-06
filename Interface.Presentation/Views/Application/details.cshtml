@@ -42,11 +42,31 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-export" aria-labelledby="dropdown-export">
+<<<<<<< HEAD
                         <li class="text-center">
                             <button class="btn btn-success" type="button" id="convert-to-pdf" data-link="/BugTracker/ExportBugsForPdf"> Pdf </button>
                         </li>
                         <li class="text-center">
                             <button class="btn btn-success" type="button" id="convert-to-txt" data-link="/BugTracker/ExportBugsForTxt"> Txt </button>
+=======
+                        <li>
+                            @using (Html.BeginForm("ExportBugsForPdf", "BugTracker", FormMethod.Post, new { @class = "export-form", id = "toPdf" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="IdApplication" id="pdf_idApplication" />
+                                <input type="hidden" name="Track" id="pdf_track" />
+                                <button class="btn btn-success" type="submit"> Pdf </button>
+                            }
+                        </li>
+                        <li>
+                            @using (Html.BeginForm("ExportBugsForTxt", "BugTracker", FormMethod.Post, new { @class = "export-form", id = "toTxt" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="IdApplication" id="txt_idApplication" />
+                                <input type="hidden" name="Track" id="txt_track" />
+                                <button class="btn btn-success" type="submit"> Txt </button>
+                            }
+>>>>>>> master
                         </li>
                     </ul>
                 </div>
@@ -67,6 +87,7 @@
             </table>
         </div>
     </div>
+<<<<<<< HEAD
 
 @using (Html.BeginForm("ExportBugsForPdf", "BugTracker", FormMethod.Post, new { @class = "export-form", id = "filter-form" }))
 {
@@ -74,6 +95,8 @@
     <input type="hidden" name="IdApplication" id="export_idApplication" />
     <input type="hidden" name="Track" id="export_track" />
 }
+=======
+>>>>>>> master
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="modal" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">
