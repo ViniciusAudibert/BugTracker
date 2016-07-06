@@ -170,36 +170,6 @@ body {
 
 #appNameForm {
     margin-bottom: 20px;
-<<<<<<< HEAD
-=======
-}
-
-#searchForm {
-    margin-right: 18px;
-}
-
-.btn-hover-green:hover {
-    background-color: #79a736 !important;
-}
-
-.export-form > button {
-    width: 100%;
-    margin: 3px 0px;
-}
-
-    .export-form > button:hover {
-        background-color: #79a736;
-    }
-
-.actions-table {
-    margin-top: 25px;
-}
-
-.dropdown-export {
-    position: absolute;
-    top: 24px;
-    left: 152px;
->>>>>>> master
 }
 
 #searchForm {

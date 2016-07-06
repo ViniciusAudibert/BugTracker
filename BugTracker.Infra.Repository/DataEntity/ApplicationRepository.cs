@@ -92,7 +92,6 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .AsNoTracking()
                     .Where(_ => _.IDUser == id && _.Active == true)
                     .Select(
-<<<<<<< HEAD
                             _ => new
                             {
                                 AppName = _.Title,
@@ -103,18 +102,6 @@ namespace BugTracker.Infra.Repository.DataEntity
                                 TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()
                             }
                         ).ToList();
-=======
-                        _ => new
-                        {
-                            AppName = _.Title,
-                            AppId = _.IDApplication,
-                            AppImage = _.Image,
-                            LastTrack = _.BugTrackers.OrderByDescending(x => x.IDBugTracker).FirstOrDefault(),
-                            TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR && b.OccurredDate >= DateTime.Today).Count(),
-                            TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING && b.OccurredDate >= DateTime.Today).Count()                            
-                        }
-                    ).ToList();
->>>>>>> master
             }
         }
 

@@ -26,7 +26,7 @@ namespace Interface.Presentation.Mail_Body
             string code = Guid.NewGuid().ToString() + new Random().Next(1000).ToString();
 
             var model = new EmailModel() {
-                Link = "http://localhost:58173/activation/code?code=" + code,
+                Link = "http://bugtracker-5.apphb.com/activation/code?code=" + code,
                 Body = "This email is about a new account you made in BugTracker website, click on the button bellow to activate your account"};
 
             string body = RazorViewToString.EmailToString(model);

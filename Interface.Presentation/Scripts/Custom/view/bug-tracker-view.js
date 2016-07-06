@@ -31,23 +31,12 @@ BugTrackerView.prototype.init = function () {
         $('#trace-content').html($(this).attr('data-value'));
     });
 
-<<<<<<< HEAD
     $('#convert-to-pdf, #convert-to-txt').click(function () {
         $('#export_idApplication').val(self.filters.idApplication);
         $('#export_track').val($('#Trace').val());
 
         $('#filter-form').attr('action', $(this).attr('data-link'));
         $('#filter-form').submit();
-=======
-    $('#toPdf').submit(function () {
-        $('#pdf_idApplication').val(self.filters.idApplication);
-        $('#pdf_track').val($('#Trace').val());
-    });
-
-    $('#toTxt').submit(function () {
-        $('#txt_idApplication').val(self.filters.idApplication);
-        $('#txt_track').val($('#Trace').val());
->>>>>>> master
     });
 };
 
